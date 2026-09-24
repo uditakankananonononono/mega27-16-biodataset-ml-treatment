@@ -1,0 +1,602 @@
+[
+ {
+  "probe": "209831_x_at",
+  "t": -6.408,
+  "mean_relapse": 1375.015,
+  "mean_control": 1671.832
+ },
+ {
+  "probe": "204490_s_at",
+  "t": -6.273,
+  "mean_relapse": 736.938,
+  "mean_control": 1071.305
+ },
+ {
+  "probe": "209835_x_at",
+  "t": -6.209,
+  "mean_relapse": 1275.036,
+  "mean_control": 2067.777
+ },
+ {
+  "probe": "212014_x_at",
+  "t": -5.933,
+  "mean_relapse": 1089.358,
+  "mean_control": 1799.588
+ },
+ {
+  "probe": "210916_s_at",
+  "t": -5.515,
+  "mean_relapse": 296.571,
+  "mean_control": 429.647
+ },
+ {
+  "probe": "214449_s_at",
+  "t": -5.474,
+  "mean_relapse": 165.775,
+  "mean_control": 219.702
+ },
+ {
+  "probe": "218787_x_at",
+  "t": -5.455,
+  "mean_relapse": 95.116,
+  "mean_control": 152.383
+ },
+ {
+  "probe": "207551_s_at",
+  "t": -5.323,
+  "mean_relapse": 683.691,
+  "mean_control": 848.409
+ },
+ {
+  "probe": "209201_x_at",
+  "t": -5.254,
+  "mean_relapse": 740.413,
+  "mean_control": 1162.143
+ },
+ {
+  "probe": "209138_x_at",
+  "t": -5.25,
+  "mean_relapse": 11982.783,
+  "mean_control": 24169.922
+ },
+ {
+  "probe": "202216_x_at",
+  "t": -5.22,
+  "mean_relapse": 385.642,
+  "mean_control": 490.731
+ },
+ {
+  "probe": "204999_s_at",
+  "t": -5.208,
+  "mean_relapse": 185.462,
+  "mean_control": 248.714
+ },
+ {
+  "probe": "211302_s_at",
+  "t": -5.151,
+  "mean_relapse": 151.264,
+  "mean_control": 231.144
+ },
+ {
+  "probe": "205926_at",
+  "t": -5.139,
+  "mean_relapse": 380.128,
+  "mean_control": 531.0
+ },
+ {
+  "probe": "221986_s_at",
+  "t": -5.137,
+  "mean_relapse": 67.774,
+  "mean_control": 104.488
+ },
+ {
+  "probe": "215121_x_at",
+  "t": -5.025,
+  "mean_relapse": 10387.289,
+  "mean_control": 23634.254
+ },
+ {
+  "probe": "212525_s_at",
+  "t": -5.018,
+  "mean_relapse": 231.365,
+  "mean_control": 292.641
+ },
+ {
+  "probe": "206636_at",
+  "t": -5.012,
+  "mean_relapse": 102.667,
+  "mean_control": 146.472
+ },
+ {
+  "probe": "211336_x_at",
+  "t": -5.004,
+  "mean_relapse": 142.538,
+  "mean_control": 229.686
+ },
+ {
+  "probe": "221224_s_at",
+  "t": -4.964,
+  "mean_relapse": 50.107,
+  "mean_control": 79.448
+ },
+ {
+  "probe": "214543_x_at",
+  "t": -4.956,
+  "mean_relapse": 221.248,
+  "mean_control": 311.615
+ },
+ {
+  "probe": "217251_x_at",
+  "t": -4.953,
+  "mean_relapse": 32.694,
+  "mean_control": 48.304
+ },
+ {
+  "probe": "205457_at",
+  "t": -4.942,
+  "mean_relapse": 152.449,
+  "mean_control": 202.777
+ },
+ {
+  "probe": "200956_s_at",
+  "t": -4.936,
+  "mean_relapse": 490.941,
+  "mean_control": 675.085
+ },
+ {
+  "probe": "209374_s_at",
+  "t": -4.931,
+  "mean_relapse": 1733.09,
+  "mean_control": 4599.721
+ },
+ {
+  "probe": "205049_s_at",
+  "t": -4.929,
+  "mean_relapse": 180.026,
+  "mean_control": 315.003
+ },
+ {
+  "probe": "210019_at",
+  "t": -4.92,
+  "mean_relapse": 34.522,
+  "mean_control": 59.676
+ },
+ {
+  "probe": "209539_at",
+  "t": -4.909,
+  "mean_relapse": 806.645,
+  "mean_control": 1078.686
+ },
+ {
+  "probe": "204489_s_at",
+  "t": -4.878,
+  "mean_relapse": 1111.478,
+  "mean_control": 1588.056
+ },
+ {
+  "probe": "211528_x_at",
+  "t": -4.871,
+  "mean_relapse": 6132.666,
+  "mean_control": 8976.993
+ },
+ {
+  "probe": "214677_x_at",
+  "t": -4.861,
+  "mean_relapse": 14340.777,
+  "mean_control": 25025.557
+ },
+ {
+  "probe": "208624_s_at",
+  "t": -4.837,
+  "mean_relapse": 983.076,
+  "mean_control": 1236.112
+ },
+ {
+  "probe": "211251_x_at",
+  "t": -4.834,
+  "mean_relapse": 407.615,
+  "mean_control": 509.451
+ },
+ {
+  "probe": "211430_s_at",
+  "t": -4.83,
+  "mean_relapse": 12659.889,
+  "mean_control": 24251.795
+ },
+ {
+  "probe": "204197_s_at",
+  "t": -4.826,
+  "mean_relapse": 331.874,
+  "mean_control": 450.995
+ },
+ {
+  "probe": "221651_x_at",
+  "t": -4.821,
+  "mean_relapse": 15523.725,
+  "mean_control": 26150.623
+ },
+ {
+  "probe": "208894_at",
+  "t": -4.814,
+  "mean_relapse": 4884.864,
+  "mean_control": 7495.861
+ },
+ {
+  "probe": "203388_at",
+  "t": -4.795,
+  "mean_relapse": 234.029,
+  "mean_control": 339.127
+ },
+ {
+  "probe": "211919_s_at",
+  "t": -4.793,
+  "mean_relapse": 904.016,
+  "mean_control": 1281.33
+ },
+ {
+  "probe": "209312_x_at",
+  "t": -4.789,
+  "mean_relapse": 9314.111,
+  "mean_control": 13219.675
+ },
+ {
+  "probe": "200628_s_at",
+  "t": -4.778,
+  "mean_relapse": 352.499,
+  "mean_control": 593.75
+ },
+ {
+  "probe": "217436_x_at",
+  "t": -4.767,
+  "mean_relapse": 2170.968,
+  "mean_control": 3130.486
+ },
+ {
+  "probe": "208885_at",
+  "t": -4.752,
+  "mean_relapse": 632.38,
+  "mean_control": 924.518
+ },
+ {
+  "probe": "208594_x_at",
+  "t": -4.743,
+  "mean_relapse": 178.857,
+  "mean_control": 227.539
+ },
+ {
+  "probe": "207085_x_at",
+  "t": -4.732,
+  "mean_relapse": 48.251,
+  "mean_control": 81.689
+ },
+ {
+  "probe": "200707_at",
+  "t": -4.727,
+  "mean_relapse": 899.556,
+  "mean_control": 1230.651
+ },
+ {
+  "probe": "208791_at",
+  "t": -4.726,
+  "mean_relapse": 1933.209,
+  "mean_control": 3470.843
+ },
+ {
+  "probe": "211902_x_at",
+  "t": -4.726,
+  "mean_relapse": 235.149,
+  "mean_control": 336.217
+ },
+ {
+  "probe": "221477_s_at",
+  "t": -4.711,
+  "mean_relapse": 823.1,
+  "mean_control": 1210.391
+ },
+ {
+  "probe": "205585_at",
+  "t": -4.71,
+  "mean_relapse": 152.596,
+  "mean_control": 201.641
+ },
+ {
+  "probe": "320_at",
+  "t": -4.71,
+  "mean_relapse": 221.39,
+  "mean_control": 281.025
+ },
+ {
+  "probe": "211868_x_at",
+  "t": -4.701,
+  "mean_relapse": 158.699,
+  "mean_control": 371.805
+ },
+ {
+  "probe": "220483_s_at",
+  "t": -4.701,
+  "mean_relapse": 128.215,
+  "mean_control": 217.627
+ },
+ {
+  "probe": "201039_s_at",
+  "t": -4.688,
+  "mean_relapse": 647.596,
+  "mean_control": 832.677
+ },
+ {
+  "probe": "201369_s_at",
+  "t": -4.675,
+  "mean_relapse": 446.662,
+  "mean_control": 639.321
+ },
+ {
+  "probe": "204198_s_at",
+  "t": -4.665,
+  "mean_relapse": 388.601,
+  "mean_control": 612.626
+ },
+ {
+  "probe": "218232_at",
+  "t": -4.661,
+  "mean_relapse": 724.999,
+  "mean_control": 1110.725
+ },
+ {
+  "probe": "211911_x_at",
+  "t": -4.651,
+  "mean_relapse": 10693.096,
+  "mean_control": 15123.041
+ },
+ {
+  "probe": "210982_s_at",
+  "t": -4.65,
+  "mean_relapse": 4534.946,
+  "mean_control": 6921.172
+ },
+ {
+  "probe": "216984_x_at",
+  "t": -4.65,
+  "mean_relapse": 293.21,
+  "mean_control": 1256.02
+ },
+ {
+  "probe": "221671_x_at",
+  "t": -4.641,
+  "mean_relapse": 15455.822,
+  "mean_control": 25740.539
+ },
+ {
+  "probe": "210754_s_at",
+  "t": -4.633,
+  "mean_relapse": 408.819,
+  "mean_control": 581.463
+ },
+ {
+  "probe": "208656_s_at",
+  "t": -4.63,
+  "mean_relapse": 6912.509,
+  "mean_control": 8338.373
+ },
+ {
+  "probe": "215193_x_at",
+  "t": -4.625,
+  "mean_relapse": 5628.952,
+  "mean_control": 8384.064
+ },
+ {
+  "probe": "221432_s_at",
+  "t": -4.611,
+  "mean_relapse": 331.123,
+  "mean_control": 430.401
+ },
+ {
+  "probe": "212900_at",
+  "t": 4.602,
+  "mean_relapse": 929.987,
+  "mean_control": 758.853
+ },
+ {
+  "probe": "204192_at",
+  "t": -4.6,
+  "mean_relapse": 184.541,
+  "mean_control": 300.233
+ },
+ {
+  "probe": "207616_s_at",
+  "t": -4.592,
+  "mean_relapse": 1039.98,
+  "mean_control": 1318.536
+ },
+ {
+  "probe": "209151_x_at",
+  "t": -4.591,
+  "mean_relapse": 25.713,
+  "mean_control": 45.251
+ },
+ {
+  "probe": "210785_s_at",
+  "t": -4.588,
+  "mean_relapse": 334.671,
+  "mean_control": 442.19
+ },
+ {
+  "probe": "207571_x_at",
+  "t": -4.577,
+  "mean_relapse": 297.874,
+  "mean_control": 407.078
+ },
+ {
+  "probe": "217478_s_at",
+  "t": -4.565,
+  "mean_relapse": 1445.798,
+  "mean_control": 1979.391
+ },
+ {
+  "probe": "215379_x_at",
+  "t": -4.564,
+  "mean_relapse": 4353.471,
+  "mean_control": 11267.554
+ },
+ {
+  "probe": "209584_x_at",
+  "t": -4.559,
+  "mean_relapse": 273.287,
+  "mean_control": 351.533
+ },
+ {
+  "probe": "209846_s_at",
+  "t": -4.554,
+  "mean_relapse": 427.215,
+  "mean_control": 608.389
+ },
+ {
+  "probe": "201564_s_at",
+  "t": -4.544,
+  "mean_relapse": 159.746,
+  "mean_control": 266.847
+ },
+ {
+  "probe": "211068_x_at",
+  "t": -4.537,
+  "mean_relapse": 1314.228,
+  "mean_control": 1554.457
+ },
+ {
+  "probe": "209862_s_at",
+  "t": -4.535,
+  "mean_relapse": 253.071,
+  "mean_control": 307.7
+ },
+ {
+  "probe": "204562_at",
+  "t": -4.534,
+  "mean_relapse": 246.062,
+  "mean_control": 337.2
+ },
+ {
+  "probe": "201514_s_at",
+  "t": -4.523,
+  "mean_relapse": 437.452,
+  "mean_control": 551.533
+ },
+ {
+  "probe": "203524_s_at",
+  "t": -4.509,
+  "mean_relapse": 889.643,
+  "mean_control": 1070.391
+ },
+ {
+  "probe": "200637_s_at",
+  "t": -4.491,
+  "mean_relapse": 574.455,
+  "mean_control": 840.722
+ },
+ {
+  "probe": "208961_s_at",
+  "t": -4.488,
+  "mean_relapse": 1007.333,
+  "mean_control": 1350.91
+ },
+ {
+  "probe": "208931_s_at",
+  "t": -4.469,
+  "mean_relapse": 631.465,
+  "mean_control": 793.208
+ },
+ {
+  "probe": "215832_x_at",
+  "t": -4.465,
+  "mean_relapse": 310.177,
+  "mean_control": 406.825
+ },
+ {
+  "probe": "212063_at",
+  "t": -4.46,
+  "mean_relapse": 3534.702,
+  "mean_control": 4762.68
+ },
+ {
+  "probe": "209823_x_at",
+  "t": -4.453,
+  "mean_relapse": 631.878,
+  "mean_control": 1029.007
+ },
+ {
+  "probe": "220894_x_at",
+  "t": -4.452,
+  "mean_relapse": 15.628,
+  "mean_control": 19.816
+ },
+ {
+  "probe": "202269_x_at",
+  "t": -4.449,
+  "mean_relapse": 909.228,
+  "mean_control": 1535.755
+ },
+ {
+  "probe": "214836_x_at",
+  "t": -4.449,
+  "mean_relapse": 2910.986,
+  "mean_control": 6398.214
+ },
+ {
+  "probe": "202247_s_at",
+  "t": -4.448,
+  "mean_relapse": 192.512,
+  "mean_control": 242.544
+ },
+ {
+  "probe": "210164_at",
+  "t": -4.443,
+  "mean_relapse": 184.564,
+  "mean_control": 332.623
+ },
+ {
+  "probe": "209024_s_at",
+  "t": -4.431,
+  "mean_relapse": 1376.527,
+  "mean_control": 1883.116
+ },
+ {
+  "probe": "214669_x_at",
+  "t": -4.431,
+  "mean_relapse": 2808.797,
+  "mean_control": 6380.449
+ },
+ {
+  "probe": "210284_s_at",
+  "t": -4.431,
+  "mean_relapse": 410.316,
+  "mean_control": 528.174
+ },
+ {
+  "probe": "204670_x_at",
+  "t": -4.427,
+  "mean_relapse": 8457.225,
+  "mean_control": 11352.159
+ },
+ {
+  "probe": "205322_s_at",
+  "t": -4.424,
+  "mean_relapse": 221.974,
+  "mean_control": 287.605
+ },
+ {
+  "probe": "209380_s_at",
+  "t": 4.421,
+  "mean_relapse": 1660.593,
+  "mean_control": 1102.959
+ },
+ {
+  "probe": "207419_s_at",
+  "t": -4.42,
+  "mean_relapse": 42.736,
+  "mean_control": 85.736
+ },
+ {
+  "probe": "217148_x_at",
+  "t": -4.409,
+  "mean_relapse": 909.019,
+  "mean_control": 2864.25
+ }
+]

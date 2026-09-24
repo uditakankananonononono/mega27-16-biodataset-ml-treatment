@@ -1,0 +1,212 @@
+[
+ {
+  "probe": "222013_x_at",
+  "t": -2.879,
+  "mean_relapse": 39.751,
+  "mean_control": 48.742,
+  "rank_by_t": 1411
+ },
+ {
+  "probe": "219478_at",
+  "t": 3.034,
+  "mean_relapse": 246.491,
+  "mean_control": 167.908,
+  "rank_by_t": 1111
+ },
+ {
+  "probe": "200876_s_at",
+  "t": -3.234,
+  "mean_relapse": 3506.284,
+  "mean_control": 3919.109,
+  "rank_by_t": 788
+ },
+ {
+  "probe": "210019_at",
+  "t": -4.92,
+  "mean_relapse": 34.522,
+  "mean_control": 59.676,
+  "rank_by_t": 27
+ },
+ {
+  "probe": "221348_at",
+  "t": -4.247,
+  "mean_relapse": 34.71,
+  "mean_control": 53.206,
+  "rank_by_t": 132
+ },
+ {
+  "probe": "206594_at",
+  "t": 2.825,
+  "mean_relapse": 138.671,
+  "mean_control": 114.763,
+  "rank_by_t": 1517
+ },
+ {
+  "probe": "219445_at",
+  "t": 2.794,
+  "mean_relapse": 427.307,
+  "mean_control": 375.94,
+  "rank_by_t": 1593
+ },
+ {
+  "probe": "32088_at",
+  "t": 4.325,
+  "mean_relapse": 80.636,
+  "mean_control": 61.455,
+  "rank_by_t": 116
+ },
+ {
+  "probe": "216862_s_at",
+  "t": -2.897,
+  "mean_relapse": 985.649,
+  "mean_control": 1098.936,
+  "rank_by_t": 1375
+ },
+ {
+  "probe": "214277_at",
+  "t": 3.227,
+  "mean_relapse": 60.593,
+  "mean_control": 43.507,
+  "rank_by_t": 796
+ },
+ {
+  "probe": "204726_at",
+  "t": 2.862,
+  "mean_relapse": 79.065,
+  "mean_control": 60.263,
+  "rank_by_t": 1451
+ },
+ {
+  "probe": "214046_at",
+  "t": -2.847,
+  "mean_relapse": 88.084,
+  "mean_control": 131.653,
+  "rank_by_t": 1479
+ },
+ {
+  "probe": "202053_s_at",
+  "t": -2.662,
+  "mean_relapse": 892.891,
+  "mean_control": 1077.31,
+  "rank_by_t": 1875
+ },
+ {
+  "probe": "218787_x_at",
+  "t": -5.455,
+  "mean_relapse": 95.116,
+  "mean_control": 152.383,
+  "rank_by_t": 7
+ },
+ {
+  "probe": "219756_s_at",
+  "t": 2.897,
+  "mean_relapse": 113.842,
+  "mean_control": 82.768,
+  "rank_by_t": 1373
+ },
+ {
+  "probe": "207829_s_at",
+  "t": 3.139,
+  "mean_relapse": 185.487,
+  "mean_control": 152.225,
+  "rank_by_t": 918
+ },
+ {
+  "probe": "219193_at",
+  "t": -3.649,
+  "mean_relapse": 616.667,
+  "mean_control": 689.205,
+  "rank_by_t": 405
+ },
+ {
+  "probe": "219915_s_at",
+  "t": -2.974,
+  "mean_relapse": 64.822,
+  "mean_control": 83.725,
+  "rank_by_t": 1229
+ },
+ {
+  "probe": "201664_at",
+  "t": 3.425,
+  "mean_relapse": 1922.29,
+  "mean_control": 1538.293,
+  "rank_by_t": 578
+ },
+ {
+  "probe": "208655_at",
+  "t": -3.141,
+  "mean_relapse": 5833.553,
+  "mean_control": 6590.398,
+  "rank_by_t": 915
+ },
+ {
+  "probe": "221133_s_at",
+  "t": -3.036,
+  "mean_relapse": 18.783,
+  "mean_control": 25.549,
+  "rank_by_t": 1108
+ },
+ {
+  "probe": "221491_x_at",
+  "t": -3.149,
+  "mean_relapse": 483.152,
+  "mean_control": 710.89,
+  "rank_by_t": 901
+ },
+ {
+  "probe": "203025_at",
+  "t": -2.662,
+  "mean_relapse": 817.997,
+  "mean_control": 906.015,
+  "rank_by_t": 1877
+ },
+ {
+  "probe": "204485_s_at",
+  "t": 2.707,
+  "mean_relapse": 1612.122,
+  "mean_control": 1007.729,
+  "rank_by_t": 1767
+ },
+ {
+  "probe": "205004_at",
+  "t": -3.002,
+  "mean_relapse": 412.194,
+  "mean_control": 463.725,
+  "rank_by_t": 1184
+ },
+ {
+  "probe": "201178_at",
+  "t": -3.754,
+  "mean_relapse": 2222.052,
+  "mean_control": 2515.354,
+  "rank_by_t": 334
+ },
+ {
+  "probe": "210307_s_at",
+  "t": 2.653,
+  "mean_relapse": 387.407,
+  "mean_control": 340.466,
+  "rank_by_t": 1896
+ },
+ {
+  "probe": "221314_at",
+  "t": -2.938,
+  "mean_relapse": 204.407,
+  "mean_control": 292.995,
+  "rank_by_t": 1286
+ },
+ {
+  "probe": "209530_at",
+  "t": 3.601,
+  "mean_relapse": 616.913,
+  "mean_control": 508.487,
+  "rank_by_t": 438
+ },
+ {
+  "probe": "210086_at",
+  "t": -4.271,
+  "mean_relapse": 29.91,
+  "mean_control": 45.081,
+  "rank_by_t": 124
+ }
+]
