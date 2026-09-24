@@ -81,6 +81,18 @@ build_paper(
             "implementation are unit-tested on planted-signal toys (5 "
             "tests), including FDR control on null p-values.",
         ]),
+        ("Related work", [
+            "Wang et al. (2005) reported a 76-gene relapse signature on "
+            "this cohort with receiver-operating characteristics in the "
+            "0.65-0.75 range using all 286 samples for signature "
+            "selection - a protocol since criticized for optimistic "
+            "bias, which is why our fold-contained selection and "
+            "preserved negative matter. Deep learning on bulk "
+            "expression of this size consistently underperforms "
+            "regularized linear models unless transfers or gene-set "
+            "priors are used; our CNN result is consistent with that "
+            "literature rather than an anomaly.",
+        ]),
         ("Limitations", [
             "Single cohort, no external validation set; probe-level "
             "features without gene-set aggregation; CNN capacity exceeds "
