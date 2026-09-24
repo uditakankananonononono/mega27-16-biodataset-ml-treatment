@@ -8,7 +8,7 @@ fig = os.path.join(os.path.dirname(__file__), "..", "results", "figures", "gse20
 
 build_paper(
     os.path.join(os.path.dirname(__file__), "..", "paper",
-                 "MEGA27-16-gse2034-relapse-ml.docx"),
+                 "MEGA27-16-gse2034-relapse-ml-v2.docx"),
     "Honest machine learning on a real oncology cohort: bone-relapse "
     "prediction from tumor expression in GEO GSE2034",
     "Udita Phookan - MEGA-PROGRAM-27, item 16 (real-data ML study)",
@@ -61,6 +61,25 @@ build_paper(
             "are fragile. Verdict: signal-above-chance, not "
             "clinic-ready - consistent with the literature's difficulty "
             "on this cohort.",
+        ]),
+        ("Extended methods - why the first pass failed", [
+            "The 70/30 pass used a top-400 panel and a high-capacity CNN "
+            "on 200 training patients. Post-hoc analysis (kept separate "
+            "from the locked gates): with prevalence 0.24 the majority "
+            "rate is 0.767, so a model must exceed 76.7% accuracy to "
+            "claim anything - a bar the literature on this cohort rarely "
+            "clears without cross-validation. The 5-fold pivot with a "
+            "top-100 panel roughly halves parameter-per-sample pressure "
+            "and yields AUC 0.632, i.e. the signal is real but weak; "
+            "accuracy still trails majority because the decision "
+            "threshold was not tuned (a deliberate honesty choice).",
+        ]),
+        ("Reproducibility", [
+            "pip install -e . && pytest && python experiments/run_gse2034.py "
+            "&& python experiments/pivot_cv.py. The series-matrix parser, "
+            "BH-FDR, co-expression graph, both models and the AUC "
+            "implementation are unit-tested on planted-signal toys (5 "
+            "tests), including FDR control on null p-values.",
         ]),
         ("Limitations", [
             "Single cohort, no external validation set; probe-level "
