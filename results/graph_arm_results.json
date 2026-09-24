@@ -1,0 +1,12 @@
+{
+ "arm": "coexpression-graph-smoothed (alpha=0.5, train-fold graph, |r|>=0.5)",
+ "auc_plain": [
+  0.6322205596646466,
+  0.05517229055114827
+ ],
+ "auc_graph": [
+  0.6290697229951313,
+  0.05102246694632403
+ ],
+ "graph_helps": false
+}
