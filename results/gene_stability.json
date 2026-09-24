@@ -1,0 +1,186 @@
+{
+ "n_boot": 40,
+ "n_genes_prefilter": 2000,
+ "panel": [
+  {
+   "probe": "222013_x_at",
+   "stability": 1.0,
+   "mean_coef": -0.1151,
+   "direction": "protective"
+  },
+  {
+   "probe": "219478_at",
+   "stability": 1.0,
+   "mean_coef": 0.0989,
+   "direction": "risk"
+  },
+  {
+   "probe": "200876_s_at",
+   "stability": 1.0,
+   "mean_coef": -0.0967,
+   "direction": "protective"
+  },
+  {
+   "probe": "210019_at",
+   "stability": 1.0,
+   "mean_coef": -0.0906,
+   "direction": "protective"
+  },
+  {
+   "probe": "221348_at",
+   "stability": 1.0,
+   "mean_coef": -0.0892,
+   "direction": "protective"
+  },
+  {
+   "probe": "206594_at",
+   "stability": 1.0,
+   "mean_coef": 0.0869,
+   "direction": "risk"
+  },
+  {
+   "probe": "219445_at",
+   "stability": 1.0,
+   "mean_coef": 0.0855,
+   "direction": "risk"
+  },
+  {
+   "probe": "32088_at",
+   "stability": 1.0,
+   "mean_coef": 0.0835,
+   "direction": "risk"
+  },
+  {
+   "probe": "216862_s_at",
+   "stability": 1.0,
+   "mean_coef": -0.0824,
+   "direction": "protective"
+  },
+  {
+   "probe": "214277_at",
+   "stability": 0.975,
+   "mean_coef": 0.0818,
+   "direction": "risk"
+  },
+  {
+   "probe": "204726_at",
+   "stability": 1.0,
+   "mean_coef": 0.0788,
+   "direction": "risk"
+  },
+  {
+   "probe": "214046_at",
+   "stability": 1.0,
+   "mean_coef": -0.078,
+   "direction": "protective"
+  },
+  {
+   "probe": "202053_s_at",
+   "stability": 1.0,
+   "mean_coef": -0.0769,
+   "direction": "protective"
+  },
+  {
+   "probe": "218787_x_at",
+   "stability": 1.0,
+   "mean_coef": -0.0768,
+   "direction": "protective"
+  },
+  {
+   "probe": "219756_s_at",
+   "stability": 1.0,
+   "mean_coef": 0.0767,
+   "direction": "risk"
+  },
+  {
+   "probe": "207829_s_at",
+   "stability": 1.0,
+   "mean_coef": 0.0764,
+   "direction": "risk"
+  },
+  {
+   "probe": "219193_at",
+   "stability": 1.0,
+   "mean_coef": -0.0759,
+   "direction": "protective"
+  },
+  {
+   "probe": "219915_s_at",
+   "stability": 0.975,
+   "mean_coef": -0.076,
+   "direction": "protective"
+  },
+  {
+   "probe": "201664_at",
+   "stability": 1.0,
+   "mean_coef": 0.0738,
+   "direction": "risk"
+  },
+  {
+   "probe": "208655_at",
+   "stability": 1.0,
+   "mean_coef": -0.073,
+   "direction": "protective"
+  },
+  {
+   "probe": "221133_s_at",
+   "stability": 1.0,
+   "mean_coef": -0.0716,
+   "direction": "protective"
+  },
+  {
+   "probe": "221491_x_at",
+   "stability": 1.0,
+   "mean_coef": -0.0712,
+   "direction": "protective"
+  },
+  {
+   "probe": "203025_at",
+   "stability": 1.0,
+   "mean_coef": -0.0704,
+   "direction": "protective"
+  },
+  {
+   "probe": "204485_s_at",
+   "stability": 0.975,
+   "mean_coef": 0.0721,
+   "direction": "risk"
+  },
+  {
+   "probe": "205004_at",
+   "stability": 1.0,
+   "mean_coef": -0.07,
+   "direction": "protective"
+  },
+  {
+   "probe": "201178_at",
+   "stability": 1.0,
+   "mean_coef": -0.069,
+   "direction": "protective"
+  },
+  {
+   "probe": "210307_s_at",
+   "stability": 0.975,
+   "mean_coef": 0.0702,
+   "direction": "risk"
+  },
+  {
+   "probe": "221314_at",
+   "stability": 1.0,
+   "mean_coef": -0.0683,
+   "direction": "protective"
+  },
+  {
+   "probe": "209530_at",
+   "stability": 1.0,
+   "mean_coef": 0.0675,
+   "direction": "risk"
+  },
+  {
+   "probe": "210086_at",
+   "stability": 1.0,
+   "mean_coef": -0.0674,
+   "direction": "protective"
+  }
+ ]
+}
