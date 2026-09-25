@@ -141,6 +141,34 @@ P.para(doc,
  "at n = 286, estimated co-expression graphs are themselves noisy, and "
  "smoothing with a noisy graph can only inject variance.")
 
+
+P.h1(doc, "Formal derivations")
+P.h2(doc, "Feature selection: the Welch statistic")
+P.para(doc, "Per-probe selection inside each training fold uses the unequal-variance t statistic:")
+P.eq(doc, "3", "t_g = (mu_R - mu_N) / sqrt( s_R^2 / n_R + s_N^2 / n_N )")
+P.para(doc, "with Welch-Satterthwaite degrees of freedom; selecting outside the folds would leak test-set label information into feature choice - the first arm's 0.537 negative is what a single 70/30 split does to this estimate, and the CV pivot is the correction.")
+P.h2(doc, "The classifier")
+P.para(doc, "Logistic regression on the selected panel estimates the relapse log-odds linearly:")
+P.eq(doc, "4", "logit P(R | x) = b0 + sum_k w_k x_k;   w by L2-penalized likelihood")
+P.eq(doc, "5", "AUC = P( s(x_i) > s(x_j) | y_i = R, y_j = N )   (Mann-Whitney form)")
+P.para(doc, "The Mann-Whitney form makes the cross-validated AUC directly interpretable: 0.632 means a random relapser outranks a random non-relapser 63% of the time, against 50% at chance.")
+P.h2(doc, "Cross-validated estimation")
+P.para(doc, "The honest protocol refits EVERYTHING inside each fold, selection included:")
+P.eq(doc, "6", "AUC_CV = (1/5) sum_f AUC( theta_f ; D_test^f ),  theta_f = fit(D_train^f)")
+P.para(doc, "Reported dispersion is the fold standard deviation (0.055), not a standard error - five folds cannot support a tighter claim.")
+P.h2(doc, "Bootstrap sign stability")
+P.para(doc, "The 15-gene panel is defined by coefficient-sign consistency over 40 bootstrap-CV refits:")
+P.eq(doc, "7", "stab(g) = (1/40) sum_b 1[ sign(w_g^(b)) = sign(w_g^(med)) ] = 1.00 for panel genes")
+P.para(doc, "Sign stability, not magnitude, is the criterion because probe intensities are not comparable across genes; a gene whose direction of association never flips under resampling is the strongest claim this cohort size supports.")
+P.h2(doc, "The graph arm's smoothing operator")
+P.para(doc, "The negative graph arm diffuses features over the co-expression graph with normalized Laplacian smoothing:")
+P.eq(doc, "8", "x' = (1 - a) x + a D^-1/2 W D^-1/2 x,   W_ij = max(0, corr(i, j))^8")
+P.para(doc, "The hypothesis was that co-expression neighbors denoise single probes; the result (0.629 vs 0.632) falsifies it at this cohort size - smoothing averages away exactly the gene-specific signal the panel relies on. The negative is preserved with its operator, not just its score.")
+P.h2(doc, "Multiplicity")
+P.para(doc, "Selecting 100 probes from 22,283 at nominal alpha = 0.05 expects ~1,114 false positives; the protocol's defense is not a corrected p-value but the stability analysis of equation (7):")
+P.eq(doc, "9", "E[false] = m alpha = 22283 x 0.05 = 1114  =>  p-values uninterpretable; stability is the filter")
+P.eq(doc, "10", "BH: reject g iff p_(g) <= (rank(g) / m) q,  q = 0.05  (reported for reference in top1000 table)")
+
 P.h1(doc, "References")
 for i, r in enumerate([
  "Wang, Y. et al. (2005). Gene-expression profiles to predict distant metastasis of lymph-node-negative primary breast cancer. Lancet 365:671-679.",
