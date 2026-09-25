@@ -323,5 +323,5 @@ for path in ("src/biomedml/io_geo.py", "src/biomedml/stats.py",
         r.font.name = "Courier New"; r.font.size = _Pt(8)
         p.paragraph_format.space_after = _Pt(0)
 
-doc.save("paper/MEGA27-16-50p.docx")
+P.save(doc, "paper/MEGA27-16-50p.docx")
 print("saved")
