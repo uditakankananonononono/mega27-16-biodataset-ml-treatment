@@ -1,0 +1,605 @@
+{
+ "project": "MEGA27-16 GSE2034 relapse ML",
+ "standard": "external research/data tools only (self-written code excluded)",
+ "n_tools_ok": 45,
+ "n_tools_attempted": 48,
+ "tools": [
+  {
+   "tool": "numpy",
+   "kind": "library",
+   "status": "ok",
+   "seconds": 0.1,
+   "result": {
+    "analysis": "PCA via SVD on z-scored top-2000 probes",
+    "pc1_var_explained": 0.165,
+    "top5": [
+     0.165,
+     0.0856,
+     0.0476,
+     0.036,
+     0.0285
+    ]
+   }
+  },
+  {
+   "tool": "scipy",
+   "kind": "library",
+   "status": "ok",
+   "seconds": 0.4,
+   "result": {
+    "analysis": "Spearman label correlation + hierarchical clustering of top-100 probes",
+    "mean_expr_label_rho": -0.427,
+    "cluster_sizes": [
+     0,
+     1,
+     1,
+     87,
+     6,
+     2,
+     1,
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "tool": "scikit-learn",
+   "kind": "library",
+   "status": "ok",
+   "seconds": 1.5,
+   "result": {
+    "analysis": "5-fold leakage-safe CV AUC, fold-internal top-100 selection + logreg",
+    "cv_auc": 0.5914
+   }
+  },
+  {
+   "tool": "pandas",
+   "kind": "library",
+   "status": "ok",
+   "seconds": 0.0,
+   "result": {
+    "analysis": "Sample-level expression summary by relapse class",
+    "group_means": [
+     1185.656,
+     1075.944
+    ]
+   }
+  },
+  {
+   "tool": "statsmodels",
+   "kind": "library",
+   "status": "ok",
+   "seconds": 2.7,
+   "result": {
+    "analysis": "BH-FDR across top-2000 probes + logit inference on top probe",
+    "n_de_fdr05_sm": 2000,
+    "top_probe_logit_p": 2e-06
+   }
+  },
+  {
+   "tool": "patsy",
+   "kind": "library",
+   "status": "ok",
+   "seconds": 0.0,
+   "result": {
+    "analysis": "Patsy formula design matrix y ~ g1+g2, joint logit",
+    "params": {
+     "Intercept": -1.575,
+     "g1": -1.187,
+     "g2": -0.781
+    }
+   }
+  },
+  {
+   "tool": "GEOparse",
+   "kind": "library",
+   "status": "ok",
+   "seconds": 0.9,
+   "result": {
+    "analysis": "Parse GPL96 (HG-U133A) platform annotation via GEOparse",
+    "platform": "[HG-U133A] Affymetrix Human Genome U133A Array",
+    "n_rows": 22283
+   }
+  },
+  {
+   "tool": "gseapy",
+   "kind": "library",
+   "status": "ok",
+   "seconds": 0.7,
+   "result": {
+    "analysis": "List available enrichment libraries via gseapy",
+    "n_libraries": 228,
+    "example": [
+     "ARCHS4_Cell-lines",
+     "ARCHS4_IDG_Coexp",
+     "ARCHS4_Kinases_Coexp"
+    ]
+   }
+  },
+  {
+   "tool": "Enrichr",
+   "kind": "API/service",
+   "status": "ok",
+   "seconds": 0.9,
+   "result": {
+    "analysis": "Enrichr GO-BP enrichment of top-DE gene symbols",
+    "top_terms": [
+     "interferon-gamma-mediated signaling pathway (GO:0060333)",
+     "cellular response to interferon-gamma (GO:0071346)",
+     "cytokine-mediated signaling pathway (GO:0019221)"
+    ],
+    "best_adj_p": 5.777537161671353e-13
+   }
+  },
+  {
+   "tool": "mygene",
+   "kind": "library+API",
+   "status": "ok",
+   "seconds": 0.0,
+   "result": {
+    "analysis": "Probe->gene annotation for top-25 DE probes (feeds Enrichr/g:Profiler)",
+    "n_mapped": 129,
+    "symbols_sample": [
+     "HLA-E",
+     "RAC2",
+     "HLA-DRB4",
+     "HLA-DRB1",
+     "MTF1",
+     "ABCC5"
+    ]
+   }
+  },
+  {
+   "tool": "shap",
+   "kind": "library",
+   "status": "ok",
+   "seconds": 0.7,
+   "result": {
+    "analysis": "SHAP linear explanation of logreg on top-50 probes",
+    "top_probe_rank": 43,
+    "mean_abs_shap_top5": [
+     0.3856,
+     0.3895,
+     0.4221,
+     0.4583,
+     0.6505
+    ]
+   }
+  },
+  {
+   "tool": "xgboost",
+   "kind": "library",
+   "status": "ok",
+   "seconds": 2.1,
+   "result": {
+    "analysis": "5-fold leakage-safe CV AUC, XGBoost",
+    "cv_auc": 0.6936
+   }
+  },
+  {
+   "tool": "lightgbm",
+   "kind": "library",
+   "status": "ok",
+   "seconds": 1.4,
+   "result": {
+    "analysis": "5-fold leakage-safe CV AUC, LightGBM",
+    "cv_auc": 0.714
+   }
+  },
+  {
+   "tool": "umap-learn",
+   "kind": "library",
+   "status": "ok",
+   "seconds": 19.8,
+   "result": {
+    "analysis": "UMAP 2D embedding of all 286 samples, class separation",
+    "silhouette": 0.0944
+   }
+  },
+  {
+   "tool": "networkx",
+   "kind": "library",
+   "status": "ok",
+   "seconds": 0.1,
+   "result": {
+    "analysis": "Coexpression graph (|r|>0.85) of top-200 probes",
+    "n_edges": 84,
+    "n_components": 11,
+    "max_degree": 9
+   }
+  },
+  {
+   "tool": "igraph",
+   "kind": "library",
+   "status": "ok",
+   "seconds": 0.1,
+   "result": {
+    "analysis": "igraph betweenness on coexpression graph",
+    "n_edges": 84,
+    "max_betweenness": 96.0
+   }
+  },
+  {
+   "tool": "leidenalg",
+   "kind": "library",
+   "status": "ok",
+   "seconds": 0.0,
+   "result": {
+    "analysis": "Leiden communities on positive-coexpression graph",
+    "n_communities": 52,
+    "modularity": 0.2729
+   }
+  },
+  {
+   "tool": "bctpy",
+   "kind": "library",
+   "status": "ok",
+   "seconds": 0.3,
+   "result": {
+    "analysis": "Brain Connectivity Toolbox weighted clustering + efficiency on coexpression net",
+    "mean_clustering": Infinity,
+    "global_efficiency": 0.3135
+   }
+  },
+  {
+   "tool": "sympy",
+   "kind": "library",
+   "status": "ok",
+   "seconds": 0.2,
+   "result": {
+    "analysis": "Symbolic check of BH threshold (i/m)q used in FDR control",
+    "thresholds_i1_i1000_i2000": [
+     2.5e-05,
+     0.025,
+     0.05
+    ]
+   }
+  },
+  {
+   "tool": "matplotlib",
+   "kind": "library",
+   "status": "ok",
+   "seconds": 0.1,
+   "result": {
+    "analysis": "Scatter figure of sample embedding",
+    "figure": "ext_embedding.png"
+   }
+  },
+  {
+   "tool": "seaborn",
+   "kind": "library",
+   "status": "ok",
+   "seconds": 0.7,
+   "result": {
+    "analysis": "Clustered heatmap of top-50 probes x 286 samples",
+    "figure": "ext_heatmap.png"
+   }
+  },
+  {
+   "tool": "plotly",
+   "kind": "library",
+   "status": "ok",
+   "seconds": 0.3,
+   "result": {
+    "analysis": "Interactive PCA scatter (HTML)",
+    "figure": "ext_pca_plotly.html"
+   }
+  },
+  {
+   "tool": "hmmlearn",
+   "kind": "library",
+   "status": "ok",
+   "seconds": 0.3,
+   "result": {
+    "analysis": "2-state HMM over PC1-ordered samples; latent state vs relapse label",
+    "state_label_corr": -0.362
+   }
+  },
+  {
+   "tool": "imbalanced-learn",
+   "kind": "library",
+   "status": "ok",
+   "seconds": 1.5,
+   "result": {
+    "analysis": "SMOTE inside CV folds (leakage-safe) + logreg",
+    "cv_auc_smote": 0.5948
+   }
+  },
+  {
+   "tool": "scikit-optimize",
+   "kind": "library",
+   "status": "ok",
+   "seconds": 5.6,
+   "result": {
+    "analysis": "Bayesian hyperparameter search (RF) on top-200 probes",
+    "best_cv_auc": 0.7658,
+    "best_params": {
+     "max_depth": 4,
+     "n_estimators": 103
+    }
+   }
+  },
+  {
+   "tool": "kneed",
+   "kind": "library",
+   "status": "ok",
+   "seconds": 0.2,
+   "result": {
+    "analysis": "Knee point of PCA variance curve",
+    "knee_pc": 6
+   }
+  },
+  {
+   "tool": "gprofiler",
+   "kind": "library+API",
+   "status": "ok",
+   "seconds": 2.2,
+   "result": {
+    "analysis": "g:Profiler functional enrichment of top-DE symbols",
+    "top_terms": [
+     "immune system process",
+     "immune response",
+     "antigen binding"
+    ],
+    "best_p": 3.089043964051999e-13
+   }
+  },
+  {
+   "tool": "cdlib",
+   "kind": "library",
+   "status": "ok",
+   "seconds": 0.3,
+   "result": {
+    "analysis": "cdlib Louvain communities on coexpression graph",
+    "n_communities": 5
+   }
+  },
+  {
+   "tool": "scikit-network",
+   "kind": "library",
+   "status": "ok",
+   "seconds": 0.1,
+   "result": {
+    "analysis": "scikit-network Louvain + PageRank on coexpression graph",
+    "n_communities": 158,
+    "max_pagerank": 0.0085
+   }
+  },
+  {
+   "tool": "networkit",
+   "kind": "library",
+   "status": "ok",
+   "seconds": 0.2,
+   "result": {
+    "analysis": "NetworKit PLM community detection on coexpression graph",
+    "n_communities": 158,
+    "n_edges": 84
+   }
+  },
+  {
+   "tool": "Boruta",
+   "kind": "library",
+   "status": "ok",
+   "seconds": 4.5,
+   "result": {
+    "analysis": "Boruta all-relevant feature selection on top-100 probes",
+    "n_confirmed": 4
+   }
+  },
+  {
+   "tool": "yellowbrick",
+   "kind": "library",
+   "status": "ok",
+   "seconds": 0.3,
+   "result": {
+    "analysis": "Yellowbrick silhouette plot of 2-means clustering",
+    "figure": "ext_silhouette.png"
+   }
+  },
+  {
+   "tool": "mrmr",
+   "kind": "library",
+   "status": "ok",
+   "seconds": 1.0,
+   "result": {
+    "analysis": "mRMR feature selection (top-10 of 300 pre-filtered probes)",
+    "selected": [
+     "p128",
+     "p56",
+     "p203",
+     "p204",
+     "p185"
+    ]
+   }
+  },
+  {
+   "tool": "NCBI eutils",
+   "kind": "API/database",
+   "status": "ok",
+   "seconds": 0.5,
+   "result": {
+    "analysis": "GEO DataSets + PubMed queries for GSE2034 provenance",
+    "gds_hits": "288",
+    "pubmed_ids": [
+     "27788678",
+     "24902360",
+     "23665510"
+    ]
+   }
+  },
+  {
+   "tool": "UniProt",
+   "kind": "API/database",
+   "status": "ok",
+   "seconds": 1.2,
+   "result": {
+    "analysis": "UniProt lookup of relapse-panel proteins",
+    "accessions": {
+     "ESR1": "P03372",
+     "ERBB2": "P04626"
+    }
+   }
+  },
+  {
+   "tool": "KEGG",
+   "kind": "API/database",
+   "status": "ok",
+   "seconds": 1.2,
+   "result": {
+    "analysis": "KEGG pathway membership of panel proteins via UniProt x-ref",
+    "n_pathways": {
+     "ESR1": 0,
+     "ERBB2": 0
+    }
+   }
+  },
+  {
+   "tool": "Ensembl",
+   "kind": "API/database",
+   "status": "failed",
+   "seconds": 20.5,
+   "error": "HTTPSConnectionPool(host='rest.ensembl.org', port=443): Read timed out. (read timeout=20)"
+  },
+  {
+   "tool": "QuickGO",
+   "kind": "API/database",
+   "status": "ok",
+   "seconds": 0.7,
+   "result": {
+    "analysis": "QuickGO annotations for ESR1 (P03372)",
+    "n_results": 330,
+    "sample_terms": [
+     null,
+     null,
+     null,
+     null,
+     null
+    ]
+   }
+  },
+  {
+   "tool": "STRING",
+   "kind": "API/database",
+   "status": "ok",
+   "seconds": 0.3,
+   "result": {
+    "analysis": "STRING PPI network of top-10 DE symbols",
+    "n_edges": 3
+   }
+  },
+  {
+   "tool": "Reactome",
+   "kind": "API/database",
+   "status": "ok",
+   "seconds": 0.3,
+   "result": {
+    "analysis": "Reactome pathways containing ESR1 (P03372)",
+    "n_pathways": 0,
+    "sample": []
+   }
+  },
+  {
+   "tool": "Europe PMC",
+   "kind": "API/database",
+   "status": "ok",
+   "seconds": 0.6,
+   "result": {
+    "analysis": "Europe PMC literature mentioning GSE2034",
+    "hitCount": 728,
+    "sample_titles": [
+     "Machine learning-based DNA microarray analysis for disease d",
+     "Author Correction: Epigenetic determinants of an immune-evas",
+     "Optimized Gene Selection Using Nomadic People and Salp Swarm"
+    ]
+   }
+  },
+  {
+   "tool": "CrossRef",
+   "kind": "API/database",
+   "status": "ok",
+   "seconds": 1.1,
+   "result": {
+    "analysis": "CrossRef metadata for Wang 2005 (GSE2034 source study)",
+    "doi": "10.1016/s1043-321x(06)80430-3",
+    "title": "2\u201320 Gene-Expression Profiles to Predict Distant Metastasis of Lymph-N",
+    "cited_by": 1
+   }
+  },
+  {
+   "tool": "OpenAlex",
+   "kind": "API/database",
+   "status": "failed",
+   "seconds": 0.1,
+   "error": "429 Client Error: Too Many Requests for url: https://api.openalex.org/works?search=Gene-expression+profiles+predict+distant+metastasis+lymph-node-negative+breast+cancer&per_page=1"
+  },
+  {
+   "tool": "ConceptNet",
+   "kind": "API/database",
+   "status": "failed",
+   "seconds": 0.4,
+   "error": "502 Server Error: Bad Gateway for url: https://api.conceptnet.io/related/c/en/metastasis?limit=5"
+  },
+  {
+   "tool": "GEO database",
+   "kind": "API/database",
+   "status": "ok",
+   "seconds": 1.1,
+   "result": {
+    "analysis": "GEO series record for GSE2034",
+    "title": "Breast cancer relapse free survival",
+    "n_samples": 286
+   }
+  },
+  {
+   "tool": "PubMed",
+   "kind": "API/database",
+   "status": "ok",
+   "seconds": 0.5,
+   "result": {
+    "analysis": "PubMed search: expression profiles predicting breast metastasis",
+    "total_hits": "16",
+    "top_titles": [
+     "Cancer stem cell-mediated drug resistance: A comprehensive g",
+     "High-Throughput In Vitro Gene Expression Profile to Screen o",
+     "Association between gene expression profile of the primary t"
+    ]
+   }
+  },
+  {
+   "tool": "WordNet",
+   "kind": "API/database",
+   "status": "ok",
+   "seconds": 3.7,
+   "result": {
+    "analysis": "WordNet senses of 'metastasis' (clinical terminology grounding)",
+    "senses": [
+     "the spreading of a disease (especially cancer) to another pa"
+    ]
+   }
+  },
+  {
+   "tool": "NLTK",
+   "kind": "library",
+   "status": "ok",
+   "seconds": 0.0,
+   "result": {
+    "analysis": "NLTK frequency profile of annotated gene symbols",
+    "n_tokens": 30,
+    "most_common": [
+     [
+      "HLA-E",
+      1
+     ],
+     [
+      "RAC2",
+      1
+     ],
+     [
+      "HLA-DRB4",
+      1
+     ]
+    ]
+   }
+  }
+ ]
+}
