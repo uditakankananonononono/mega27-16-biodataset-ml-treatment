@@ -1,0 +1,276 @@
+{
+ "n_sample_accessions": 286,
+ "n_probes": 22283,
+ "tools": {
+  "welch_t": {
+   "group": "stat",
+   "top5_abs_t": [
+    6.209102153778076,
+    5.9326934814453125,
+    5.250147342681885,
+    5.024908542633057,
+    4.931200981140137
+   ]
+  },
+  "mannwhitney": {
+   "group": "stat",
+   "min_p_5": [
+    0.000547007547218227,
+    0.0015776940928248584,
+    0.0017485428426325322,
+    0.002659400121749025,
+    0.003545254337378373
+   ]
+  },
+  "bh_fdr": {
+   "group": "stat",
+   "n_reject_q05": 214
+  },
+  "ks_test": {
+   "group": "stat",
+   "min_p_5": [
+    0.0028693470491477384,
+    0.0030257607767044986,
+    0.0034981049336857356,
+    0.00406856182899172,
+    0.005561842454235032
+   ]
+  },
+  "zscore": {
+   "group": "stat",
+   "col_mean_max_abs": 5.551984827434353e-07
+  },
+  "quantile_norm": {
+   "group": "stat",
+   "done": true,
+   "note": "rank-normalized 2000x286"
+  },
+  "log2": {
+   "group": "stat",
+   "range_after": [
+    -0.32192808389663696,
+    17.263084411621094
+   ]
+  },
+  "mad_filter": {
+   "group": "stat",
+   "overlap_with_variance_top100": 0
+  },
+  "variance_filter": {
+   "group": "stat",
+   "top2000_selected": true
+  },
+  "cohens_d": {
+   "group": "stat",
+   "max_abs_d": 0.724144458770752
+  },
+  "logistic": {
+   "group": "classifier",
+   "cv_auc_mean": 0.6489,
+   "cv_auc_std": 0.0629,
+   "protocol": "fold-internal Welch-t selection + fold stats"
+  },
+  "svm_linear": {
+   "group": "classifier",
+   "cv_auc_mean": 0.6212,
+   "cv_auc_std": 0.0561,
+   "protocol": "fold-internal Welch-t selection + fold stats"
+  },
+  "random_forest": {
+   "group": "classifier",
+   "cv_auc_mean": 0.6739,
+   "cv_auc_std": 0.0771,
+   "protocol": "fold-internal Welch-t selection + fold stats"
+  },
+  "gradboost": {
+   "group": "classifier",
+   "cv_auc_mean": 0.6467,
+   "cv_auc_std": 0.0769,
+   "protocol": "fold-internal Welch-t selection + fold stats"
+  },
+  "knn": {
+   "group": "classifier",
+   "cv_auc_mean": 0.6357,
+   "cv_auc_std": 0.0823,
+   "protocol": "fold-internal Welch-t selection + fold stats"
+  },
+  "naive_bayes": {
+   "group": "classifier",
+   "cv_auc_mean": 0.6311,
+   "cv_auc_std": 0.0564,
+   "protocol": "fold-internal Welch-t selection + fold stats"
+  },
+  "mlp": {
+   "group": "classifier",
+   "cv_auc_mean": 0.6676,
+   "cv_auc_std": 0.0917,
+   "protocol": "fold-internal Welch-t selection + fold stats"
+  },
+  "deep_2layer": {
+   "group": "classifier",
+   "cv_auc_mean": 0.6392,
+   "cv_auc_std": 0.1086,
+   "protocol": "fold-internal Welch-t selection + fold stats"
+  },
+  "nearest_centroid": {
+   "group": "classifier",
+   "cv_auc_mean": 0.6716,
+   "cv_auc_std": 0.0679,
+   "protocol": "fold-internal Welch-t selection + fold stats"
+  },
+  "majority": {
+   "group": "classifier",
+   "majority_accuracy": 0.7587,
+   "note": "constant-score AUC is 0.5 by definition"
+  },
+  "roc_auc": {
+   "group": "evaluation",
+   "result": 0.6434916182461765
+  },
+  "pr_auc": {
+   "group": "evaluation",
+   "result": 0.3935780161101882
+  },
+  "brier": {
+   "group": "evaluation",
+   "result": 0.22239717440888596
+  },
+  "confusion": {
+   "group": "evaluation",
+   "result": [
+    [
+     178,
+     39
+    ],
+    [
+     42,
+     27
+    ]
+   ]
+  },
+  "calibration": {
+   "group": "evaluation",
+   "result": [
+    0.17857142857142858,
+    0.21875,
+    0.25,
+    0.5,
+    0.2916666666666667,
+    0.46153846153846156
+   ]
+  },
+  "decision_curve": {
+   "group": "evaluation",
+   "result": {
+    "0.1": 0.12393162393162391,
+    "0.2": 0.06381118881118882,
+    "0.3": 0.02997002997002997
+   }
+  },
+  "fold_dispersion": {
+   "group": "evaluation",
+   "result": {
+    "mean": 0.6489,
+    "std": 0.0
+   }
+  },
+  "permutation": {
+   "group": "evaluation",
+   "result": {
+    "observed": 0.6488650883999721,
+    "p": 0.16666666666666666
+   }
+  },
+  "bootstrap_stability": {
+   "group": "evaluation",
+   "frac_sign_stable_100pct": 1.0
+  },
+  "stratified_split": {
+   "group": "evaluation",
+   "n_test_20pct": 56
+  },
+  "coexpression": {
+   "group": "graph",
+   "shape": [
+    100,
+    100
+   ],
+   "mean_abs": 0.31501773291102697
+  },
+  "laplacian_smooth": {
+   "group": "graph",
+   "smoothed_shape": [
+    286,
+    100
+   ]
+  },
+  "community": {
+   "group": "graph",
+   "result": {
+    "n_components": 2,
+    "largest": 98
+   }
+  },
+  "degree_stats": {
+   "group": "graph",
+   "result": {
+    "mean_degree": 42.16,
+    "max_degree": 76
+   }
+  },
+  "spectral_gap": {
+   "group": "graph",
+   "result": 0.018185588501405656
+  },
+  "edge_density": {
+   "group": "graph",
+   "result": 0.4258585858585859
+  },
+  "probe_mapper": {
+   "group": "panel",
+   "mapped": {
+    "221875_x_at": null,
+    "211714_x_at": null,
+    "201764_at": null,
+    "211656_x_at": null,
+    "202037_s_at": null,
+    "200599_s_at": null,
+    "201201_at": null,
+    "37892_at": null,
+    "211881_x_at": null,
+    "203478_at": null,
+    "209602_s_at": null,
+    "200635_s_at": null,
+    "217491_x_at": null,
+    "200824_at": null,
+    "216853_x_at": null
+   }
+  },
+  "sign_stability": {
+   "group": "panel",
+   "first10_probes": [
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ]
+  },
+  "enrichment": {
+   "group": "panel",
+   "example_p": 7.771561172376096e-16
+  },
+  "expression_stats": {
+   "group": "panel",
+   "result": {
+    "mean_relapse": -0.27967309951782227,
+    "mean_nonrelapse": 0.08892848342657089
+   }
+  }
+ }
+}
