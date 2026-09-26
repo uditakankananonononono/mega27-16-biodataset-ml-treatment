@@ -14,8 +14,18 @@ def parse_series_matrix(path):
         for line in f:
             if line.startswith("!Sample_characteristics"):
                 parts = line.rstrip("\n").split("\t")
-                key = parts[1].split(":")[0].strip('" ')
-                vals = [p.split(":", 1)[-1].strip('" ') for p in parts[1:]]
+                cells = [c.strip('" ') for c in parts[1:]]
+                # Key from the first non-empty cell's "key:" prefix: GEO files
+                # like GSE2603 leave the first samples' cells blank on some
+                # characteristic lines, so parts[1] can be empty.
+                key = ""
+                for c in cells:
+                    if ":" in c:
+                        key = c.split(":", 1)[0].strip()
+                        break
+                if not key:
+                    continue
+                vals = [c.split(":", 1)[-1].strip() if ":" in c else "" for c in cells]
                 meta.setdefault(key, vals)
             elif line.startswith("!Sample_geo_accession"):
                 header = [p.strip('"') for p in line.rstrip("\n").split("\t")[1:]]
