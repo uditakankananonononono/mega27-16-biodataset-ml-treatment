@@ -1,0 +1,21 @@
+{
+ "checked": "2026-09-26 (GEO series-matrix characteristics fetched live)",
+ "GSE2603": {
+  "verdict": "PRIMARY replication cohort",
+  "evidence": "sample characteristics include 'bm event' + 'bmfs (yr)' (bone-metastasis event + bone-MFS), also lm/met event+MFS, age, size, nodes, path ER/PR/HER2; MSKCC primary breast cancers (B###-T) + MDA-MB-231 cell-line subpops (filter by 'tissue type')",
+  "todo": [
+   "confirm platform (expect HG-U133A) + count primary-tumor samples",
+   "download matrix, verify label parse",
+   "preregister replication: panel frozen on GSE2034, directional AUC>0.5 same-sign on bm event"
+  ]
+ },
+ "GSE5327": {
+  "verdict": "secondary (lung endpoint)",
+  "evidence": "fields: metastasis, lung met first event/all, MFS, LMFS, lms status, cohort; NO bone-specific field; 58 Erasmus+ samples (VDXN arm in our vdx clinical)"
+ },
+ "GSE14020": {
+  "verdict": "secondary (metastasis-site series)",
+  "evidence": "SuperSeries of GSE14017+GSE14018 (metastases by organ); matrix dir empty on FTP, use SOFT; could support bone-vs-other-met site analysis, not relapse prediction"
+ },
+ "decision": "GSE2603 locked as D1 replication target pending platform check"
+}
