@@ -1,0 +1,16 @@
+{
+ "comparator": "Wang2005 gene76 relapse score (genefu sig.gene76 coefficients, ER-conditional 313.5/280)",
+ "n": 286,
+ "er_plus": 209,
+ "probes_used": 76,
+ "fold_aucs": [
+  0.8556547619047619,
+  0.7883116883116883,
+  0.7404255319148936,
+  0.66,
+  0.627906976744186
+ ],
+ "pooled_auc": 0.746810926334068,
+ "fold_protocol": "seed9 permutation, 5 folds (identical to pivot_cv.py)",
+ "er_source": "breastCancerVDX vdx clinical via r=1.0 expression-identity map"
+}
