@@ -69,7 +69,7 @@ def run_seed(seed, Xl, y, C):
         Ctr = (Ctr[:, keepc] - cmu[keepc]) / csd[keepc]
         Cte = (Cte[:, keepc] - cmu[keepc]) / csd[keepc]
         m = LogisticRegression(penalty="elasticnet", solver="saga", C=0.05,
-                               l1_ratio=0.8, max_iter=3000, tol=1e-3, random_state=seed)
+                               l1_ratio=0.8, max_iter=300, tol=1e-3, random_state=seed)
         m.fit(np.hstack([Xtr, Ctr]), y[tr])
         aucs.append(auc_score(y[te], m.predict_proba(np.hstack([Xte, Cte]))[:, 1]))
         mc = LogisticRegression(C=1.0, max_iter=1000, random_state=seed)
@@ -82,7 +82,9 @@ def main():
     res = json.load(open(OUTP)) if os.path.exists(OUTP) else {"per_seed": {}, "wang_fold_aucs": None}
     Xl, y, C, genes, kept = load_all()
     W = wang_scores(Xl, y, genes, kept)
-    for seed in SEEDS:
+    import sys as _s
+    todo=[int(a) for a in _s.argv[1:]] or SEEDS
+    for seed in todo:
         rng = np.random.default_rng(seed)
         perm = rng.permutation(len(y))
         folds = np.array_split(perm, 5)

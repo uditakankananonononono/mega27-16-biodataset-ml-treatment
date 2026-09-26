@@ -39,3 +39,8 @@ RULE 6 - ask ChatGPT for redirection, pivot on strongest, verbatim log.
   clinical-only logreg) for sanity.
 - If G1 fails: honest negative, escalate to L2 (SVM-RFE / XGBoost),
   RULE 6 ChatGPT redirection round feeds the next rung's novelty.
+
+### L1 compute amendment (2026-09-26 17:11 IST, before any L1 result)
+max_iter reduced 3000 -> 300 (saga on n=229 << p converges well before;
+checked: no result had been produced when amended). Everything else
+unchanged. Seeds run one-per-invocation (sandbox 120s call limit).
