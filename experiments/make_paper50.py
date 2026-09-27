@@ -1,6 +1,7 @@
 """50-page paper generator for MEGA27-16 (GSE2034 metastasis ML)."""
 import json, os, sys
-sys.path.insert(0, "/home/sandbox/mega27/paperlib")
+from docx.shared import Pt as _Pt
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "vendor", "paperlib"))
 import paper50 as P
 
 R = json.load(open("results/results.json"))
@@ -8,45 +9,69 @@ CV = json.load(open("results/cv_results.json"))
 G = json.load(open("results/graph_arm_results.json"))
 GS = json.load(open("results/gene_stability.json"))
 PM = json.load(open("results/probe_map.json"))
+MB = json.load(open("results/replication/metabric_primary.json"))
+SB = json.load(open("results/replication/scanb_secondary.json"))
+TC = json.load(open("results/replication/twocohort_panel.json"))
+SEL_A = json.load(open("results/replication/sel_gse2034.json"))
+SEL_B = json.load(open("results/replication/sel_metabric.json"))
 
 doc = P.new_doc()
 P.title_block(doc,
     "Honest Machine Learning on a Small Clinical Microarray Cohort: "
-    "Cross-Validated Metastasis Prediction in GSE2034, Two Documented "
-    "Negative Results, and a 15-Gene Sign-Stable Candidate Panel",
+    "Cross-Validated Signal in GSE2034, a 15-Gene Stability Panel "
+    "Falsified on Two Independent Cohorts, and the Limits of "
+    "Bootstrap-Stability Panel Discovery",
     "MEGA-PROGRAM-27, Item 16 - computational biology research lane")
 
 P.h1(doc, "Abstract")
 P.para(doc,
  "GSE2034 (286 lymph-node-negative breast cancer patients, 22,283 "
  "Affymetrix probes, bone-relapse labels, 24.1% prevalence) is a classic "
- "small-n large-p cohort. We document the full arc honestly. First "
- "negative: a naive 70/30 split logistic model scores AUC 0.537 - below "
- "usefulness - and is preserved as a finding about split luck. Pivot: "
- "5-fold cross-validation with per-fold feature selection (100 genes by "
- "Welch |t|) yields logistic AUC 0.632 +/- 0.055 and CNN accuracy 0.724 "
- "+/- 0.072 - signal above chance, far from clinic. Second negative: a "
- "co-expression-graph smoothing arm (train-fold graph, |r| >= 0.5, "
- "alpha = 0.5) scores AUC 0.629 versus 0.632 plain - graph structure "
- "does not help here, and that is reported, not buried. Discovery arm: "
- "40 bootstrap-CV refits identify 15 genes whose coefficient sign is "
- "100% stable; mapping probes through the GPL96 annotation names them: "
- "CDH13, NPPC, PASK, WFDC1, GLTSCR1, POF1B, CWF19L1, EEF2KMT, COX11, "
- "FUT9, CALML3, ALDH3A2, PSMB1, CMC4, BLZF1. The panel is falsifiable "
- "on independent cohorts (METABRIC, SCAN-B). Everything ships with a "
- "hermetic test suite.")
+ "small-n large-p cohort. This paper documents a complete, locked-gate "
+ "methods arc, with every negative preserved. First negative: a naive "
+ "70/30 split logistic model scores AUC 0.537 - split luck, kept in the "
+ "record. Pivot: 5-fold cross-validation with per-fold feature selection "
+ "yields logistic AUC 0.632 +/- 0.055 - real but modest signal. Second "
+ "negative: a co-expression-graph smoothing arm scores 0.629 versus "
+ "0.632 plain - no help, reported not buried. Discovery arm: 40 "
+ "bootstrap-CV refits yield a 15-gene sign-stable candidate panel. "
+ "THIRD AND FOURTH NEGATIVES, under a pre-registered external-replication "
+ "rung locked before any replication analysis: the frozen 15-gene "
+ "sign-locked score FAILS on METABRIC (1,979 patients, 803 relapses; "
+ "AUC 0.5117, one-sided 95% bootstrap lower bound 0.4778, sign "
+ "concordance 9/15 - gate requires both arms, primary test fails) and "
+ "FAILS on SCAN-B GSE96058 (3,409 patients, 353 OS events, declared "
+ "OS-endpoint arm; AUC 0.5075, lower bound 0.4790, concordance 6/15). "
+ "The panel is declared NOT externally validated. FIFTH result: the "
+ "pre-registered two-cohort pivot (cross-cohort stability selection on "
+ "GSE2034 + METABRIC, test cohorts untouched) yields ZERO panel genes - "
+ "268 genes are stable in GSE2034 and 147 in METABRIC, but exactly one "
+ "gene (CACNB3) clears the bar in both, with OPPOSITE signs; the design "
+ "is declared failed as designed, with no threshold loosening. The "
+ "contribution is the method and its boundary: bootstrap sign-stability "
+ "inside one cohort is not a generalization certificate, and at the "
+ "locked bar cross-cohort stability does not manufacture one either. "
+ "Everything ships with a hermetic test suite and the locked "
+ "pre-registrations.")
 
 P.h1(doc, "Lay summary")
 P.para(doc,
  "Doctors would like a gene test that says which early breast-cancer "
  "patients will relapse. A famous 2005 dataset (286 patients) let us "
- "try. Our first model failed - and we kept the failure in the record, "
- "because small datasets can make one unlucky split look good or bad. "
- "Cross-validation showed a real but modest signal. We then asked a "
- "harder question: which genes does the signal actually depend on? "
- "Fifteen genes kept pointing the same direction in every refit of the "
- "model - a short, checkable candidate list for other researchers, and "
- "a reminder that honest negative results are results too.")
+ "try - and let us test whether our own answer survived contact with "
+ "other hospitals' data. It did not. Our 15-gene candidate list, chosen "
+ "because those genes kept pointing the same way in every refit of the "
+ "model on the original data, scored no better than chance on 1,979 "
+ "patients in METABRIC and on 3,409 patients in SCAN-B. We then asked "
+ "the stricter question: are there ANY genes that stay stable in two "
+ "cohorts at once? Hundreds pass in each cohort alone - but only one "
+ "passes in both, and it points in opposite directions in the two "
+ "datasets. So the honest headline is about the METHOD: a popular way "
+ "of picking 'stable' genes can look convincing inside one dataset and "
+ "still mean nothing outside it. We prove that with pre-registered "
+ "tests locked before the answers were computed, and we keep every "
+ "failure in the record, because that is what makes the boundary "
+ "trustworthy.")
 
 P.page_break(doc)
 P.h1(doc, "1. Introduction and dataset")
@@ -65,6 +90,7 @@ P.para(doc,
  f"flags {R['n_de_fdr05']} probes; all downstream modeling uses "
  "per-fold selection to prevent leakage.")
 
+P.page_break(doc)
 P.h1(doc, "2. Methods")
 P.h2(doc, "2.1 Models")
 P.para(doc,
@@ -93,6 +119,7 @@ P.para(doc,
  "|coef|. Probes are mapped to gene symbols through the official "
  "GPL96 annotation file (GEO, August 2016).")
 
+P.page_break(doc)
 P.h1(doc, "3. Results")
 P.table(doc, "Table 1. All modeling arms, honest verdicts.",
         ["arm", "metric", "value", "verdict"],
@@ -111,6 +138,7 @@ P.para(doc,
  "claim on this cohort must clear the cross-validation bar, and most "
  "simple pipelines will not clear 0.65.")
 
+P.page_break(doc)
 P.h1(doc, "4. The 15-gene sign-stable panel (discovery)")
 rows = []
 for p in GS["panel"]:
@@ -129,17 +157,132 @@ P.para(doc,
  "is narrow and falsifiable: these 15 genes carry the most refit-stable "
  "directional signal in GSE2034; an independent cohort with the same "
  "platform (or RNA-seq equivalents) either reproduces the directions or "
- "refutes the panel. We make no survival-efficacy claim.")
+ "refutes the panel. We make no survival-efficacy claim. Sections 5 "
+ "and 6 report what happened when those independent cohorts were "
+ "actually run under pre-registered gates: the panel was refuted, "
+ "twice, and the stricter cross-cohort design produced no panel at "
+ "all. Table 2 is retained in full because a falsified candidate list, "
+ "with its evidence, is exactly what other researchers need.")
 
-P.h1(doc, "5. Discussion and limitations")
+P.page_break(doc)
+P.h1(doc, "5. External replication: two pre-registered falsifications")
+P.para(doc,
+ "The replication rung was locked in writing (PREREG_REPLICATION.md, "
+ "dated commit e54d8bc) BEFORE any replication analysis: the frozen "
+ "15-gene panel (Table 2, directions from GSE2034 only), a frozen "
+ "scoring rule (score = sum over genes of sign x within-cohort "
+ "z(expression); no coefficient, threshold, or membership estimation on "
+ "replication data), frozen endpoints (METABRIC RFS primary; SCAN-B "
+ "secondary; GSE2603 fold-in), and a frozen falsification gate. The "
+ "gate: the primary test succeeds only if the directional AUC's "
+ "one-sided 95% bootstrap lower bound (2,000 patient-level resamples) "
+ "excludes 0.5 AND per-gene sign concordance exceeds 50%.")
+P.table(doc, "Table 3. Locked-gate external replication results (both FAILED). * declared OS-endpoint arm.",
+        ["cohort", "endpt", "n", "events", "AUC", "lo95%", "sign", "verdict"],
+        [["METABRIC", "RFS", "1,979", "803", "0.5117", "0.4778", "9/15", "FAIL"],
+         ["SCAN-B", "OS*", "3,409", "353", "0.5075", "0.4790", "6/15", "FAIL"]], size=8)
+P.para(doc,
+ "Both point estimates sit at chance; both lower bounds include 0.5. "
+ "The SCAN-B arm is a DECLARED OS-endpoint arm: the GEO clinical "
+ "annotation carries overall-survival fields only, and the pre-registered "
+ "fallback (documented in a dated note before scoring) specified OS "
+ "scoring with no pooling across endpoint types. All 15 panel genes were "
+ "present in each cohort's platform (GLTSCR1 scored as its current symbol "
+ "BICRA; EEF2KMT as FAM86A in the SCAN-B matrix). Conclusion, stated "
+ "plainly: the 15-gene sign-stable panel is NOT externally validated. "
+ "No re-selection was performed on replication data; the locked gate "
+ "forbids it.")
+P.h2(doc, "5.1 Per-gene direction concordance")
+rows = [[g["gene"], "+1 (risk)" if g["discovery_sign"] > 0 else "-1 (protective)",
+         f"{g['metabric_corr']:+.4f}", "yes" if g["concordant"] else "no"]
+        for g in MB["per_gene"]]
+P.table(doc, "Table 3a. METABRIC per-gene concordance (9/15 concordant; raw-gene correlation vs RFS label).",
+        ["gene", "discovery direction", "METABRIC corr", "concordant"], rows, size=8)
+rows = [[g["gene"], "+1 (risk)" if g["discovery_sign"] > 0 else "-1 (protective)",
+         f"{g['scanb_corr']:+.4f}", "yes" if g["concordant"] else "no"]
+        for g in SB["per_gene"]]
+P.table(doc, "Table 3b. SCAN-B per-gene concordance (6/15 concordant; correlation vs OS event).",
+        ["gene", "discovery direction", "SCAN-B corr", "concordant"], rows, size=8)
+P.para(doc,
+ "Per-gene behaviour matches the panel-level verdict: correlations are "
+ "small in both directions, concordant genes carry no larger magnitude "
+ "than discordant ones, and no single gene rescues the score. The "
+ "failure is diffuse - a property of the panel as a whole, not of one "
+ "mismapped probe.")
+
+P.page_break(doc)
+P.h1(doc, "6. The two-cohort pivot: cross-cohort stability, failed as designed")
+P.para(doc,
+ "The owner's standing rule is that a negative triggers a pivot, not an "
+ "end. The falsifications taught a specific lesson - sign-stability "
+ "inside ONE cohort is not a generalization certificate - so the pivot "
+ "was pre-registered (PREREG_TWOCOHORT.md, dated commit b476288) BEFORE "
+ "any cross-cohort analysis: select on TWO discovery cohorts "
+ "(GSE2034 + METABRIC) with the identical bootstrap recipe per cohort, "
+ "and admit a gene to the panel only if it is sign-stable at >= 0.975 "
+ "in BOTH cohorts with AGREEING signs; SCAN-B and GSE2603 were reserved "
+ "as untouched test arms; a zero-gene outcome is declared a design "
+ "failure, with threshold loosening explicitly requiring a NEW "
+ "pre-registration.")
+P.table(doc, "Table 4. Two-cohort cross-stability selection (locked recipe, 40 bootstrap L1 refits per cohort).",
+        ["arm", "genes scored", "stable >= 0.975", "notes"],
+        [["GSE2034 (symbol-level rerun)", "2,000", "268", "top-|t| prefilter, seed 0"],
+         ["METABRIC (RFS)", "2,000", "147", "identical recipe"],
+         ["BOTH cohorts", "-", "1 (CACNB3)", "signs DISAGREE (+1 risk vs -1 protective) - panel = 0"]], size=8)
+P.para(doc,
+ "The result is the sharpest negative of the arc. Hundreds of genes "
+ "look rock-stable inside each cohort alone; exactly one survives both, "
+ "and it points in opposite directions in the two datasets - worse than "
+ "no gene, because it shows what the intersection of two single-cohort "
+ "stability filters actually selects. Among the top joint-stability "
+ "pairs (descriptive, not a loosening), sign agreement runs at chance. "
+ "The two cohorts' relapse signals share essentially no stable genes at "
+ "the locked bar. The design is declared FAILED AS DESIGNED. Recorded "
+ "future arms, not executed: subtype-conditioned selection (PAM50 calls "
+ "exist in both test cohorts), and a permutation-informed threshold - "
+ "either one requires its own pre-registration and the owner's explicit "
+ "sign-off before it runs.")
+
+P.page_break(doc)
+P.h1(doc, "7. What the arc establishes (the contribution)")
+P.para(doc,
+ "The methodological claim is now bounded on all sides by locked gates: "
+ "(i) within-cohort bootstrap sign-stability is a REAL, reproducible "
+ "property - 268 and 147 genes clear 0.975 in two independent cohorts "
+ "respectively; (ii) it is NOT sufficient for external validity - the "
+ "15-gene GSE2034 panel fails at chance level on both; (iii) requiring "
+ "cross-cohort stability at the same bar is not a rescue - the "
+ "intersection is empty up to one sign-flipped gene. Any future panel "
+ "claim on these cohorts must therefore clear a cross-cohort bar with a "
+ "pre-registered threshold justified from a null (permutation) analysis, "
+ "or condition on subtype explicitly. Both paths are recorded as future "
+ "arms; neither is run here. This is the paper's central finding, and it "
+ "is stated without softening: on this evidence base, stability-based "
+ "panel discovery for breast-cancer relapse does not survive contact "
+ "with independent cohorts.")
+
+P.page_break(doc)
+P.h1(doc, "8. Discussion and limitations")
 P.para(doc,
  "The cohort predates modern standards: no treatment harmonization, "
  "array-era normalization, and bone-only relapse labels. AUC 0.63 is "
  "below clinical utility; the value of this project is the methodology "
- "record (two preserved negatives, leakage-free protocol) and the "
- "stable-panel candidate list. The graph arm's failure is instructive: "
- "at n = 286, estimated co-expression graphs are themselves noisy, and "
- "smoothing with a noisy graph can only inject variance.")
+ "record - FIVE preserved negatives across two pre-registered external "
+ "rungs, a leakage-free protocol, and a boundary result for "
+ "stability-based panel discovery. The graph arm's failure is "
+ "instructive: at n = 286, estimated co-expression graphs are "
+ "themselves noisy, and smoothing with a noisy graph can only inject "
+ "variance. The external failures are more instructive still: platform "
+ "shift (Affymetrix U133A vs Illumina HT-12 vs RNA-seq), endpoint "
+ "shift (bone relapse vs any relapse vs overall survival), and cohort "
+ "composition each plausibly contribute, and the data at hand cannot "
+ "apportion them - which is precisely why the pre-registered gate, and "
+ "not a post-hoc story, carries the conclusion. Expert adjudication of "
+ "discovery-cohort labels was considered and waived by the owner "
+ "(documented in the amendment queue); residual label-noise risk is "
+ "acknowledged here and bounds every within-cohort estimate. Expert "
+ "adjudication of labels was considered and waived by the owner; "
+ "residual label noise risk remains.")
 
 
 P.h1(doc, "Formal derivations")
@@ -156,6 +299,19 @@ P.h2(doc, "Cross-validated estimation")
 P.para(doc, "The honest protocol refits EVERYTHING inside each fold, selection included:")
 P.eq(doc, "6", "AUC_CV = (1/5) sum_f AUC( theta_f ; D_test^f ),  theta_f = fit(D_train^f)")
 P.para(doc, "Reported dispersion is the fold standard deviation (0.055), not a standard error - five folds cannot support a tighter claim.")
+P.h2(doc, "The locked replication score")
+P.para(doc, "External scoring uses discovery directions only - nothing is estimated on replication data:")
+P.eq(doc, "7", "S_i = sum_g  d_g * (x_ig - mu_g) / sd_g,   d_g in {-1,+1} from GSE2034 refits")
+P.para(doc, "with mu_g, sd_g the TEST cohort's own gene mean and standard deviation (within-cohort z), and d_g the frozen discovery sign. Membership, signs, and the absence of any fitted weight are the entire claim being tested.")
+P.h2(doc, "Directional AUC and the bootstrap gate")
+P.para(doc, "The gate statistic is the one-sided lower confidence bound of the AUC under patient-level resampling:")
+P.eq(doc, "8", "AUC_b = AUC( S_i(b), y_i(b) ),  b = 1..2000 patient-index resamples")
+P.eq(doc, "9", "gate:  Q_0.05( AUC_b ) > 0.5  AND  (1/15) sum_g 1[ sign(corr(x_g, y)) = d_g ] > 0.5")
+P.para(doc, "Both arms must pass. METABRIC: Q_0.05 = 0.4778 (fails), concordance 9/15 (passes) - the conjunctive gate fails. SCAN-B: Q_0.05 = 0.4790 and concordance 6/15 - both arms fail. Locking the gate before seeing any replication number is what makes the negative clean: there is no degree of freedom left to explain away.")
+P.h2(doc, "Cross-cohort stability")
+P.para(doc, "The two-cohort rule admits a gene only if the same bootstrap recipe, run independently in two discovery cohorts, keeps its sign at stability >= 0.975 in both:")
+P.eq(doc, "10", "panel = { g : stab_A(g) >= 0.975 AND stab_B(g) >= 0.975 AND sign_A(g) = sign_B(g) }")
+P.para(doc, "Empirically |panel| = 0 (the sole double-stable gene, CACNB3, flips sign). The intersection of two filters that each pass hundreds of genes is empty: single-cohort stability is abundant, cross-cohort stability at the same bar is absent.")
 P.h2(doc, "Bootstrap sign stability")
 P.para(doc, "The 15-gene panel is defined by coefficient-sign consistency over 40 bootstrap-CV refits:")
 P.eq(doc, "7", "stab(g) = (1/40) sum_b 1[ sign(w_g^(b)) = sign(w_g^(med)) ] = 1.00 for panel genes")
@@ -330,6 +486,34 @@ P.para(doc,
 T2 = json.load(open("results/top2000_de.json"))
 P.table(doc, "Table I1. Top 1,000 probes by |Welch t| with group means.",
         ["probe", "t", "mean (relapse)", "mean (control)"], T2[:1000])
+
+P.page_break(doc)
+P.h1(doc, "Appendix J. Pre-registration texts (verbatim)")
+P.para(doc, "The locked texts that governed Sections 5 and 6, reproduced verbatim; dated commits predate every number those sections report.")
+for _path in ("PREREG_REPLICATION.md", "PREREG_TWOCOHORT.md"):
+    P.h2(doc, f"J. {_path}")
+    for line in open(_path):
+        p_ = doc.add_paragraph()
+        r_ = p_.add_run(line.rstrip("\n"))
+        r_.font.name = "Courier New"; r_.font.size = _Pt(8)
+        p_.paragraph_format.space_after = _Pt(0)
+
+P.h1(doc, "Appendix K. Cross-cohort stability context")
+P.para(doc, "Top gene pairs by joint-min stability across the two discovery arms (descriptive context for Section 6; not a threshold loosening). Sign agreement among the leaders runs at chance.")
+_joint = sorted(((min(SEL_A[g]["stability"], SEL_B[g]["stability"]), g, SEL_A[g]["sign"] == SEL_B[g]["sign"], SEL_A[g]["stability"], SEL_B[g]["stability"]) for g in set(SEL_A) & set(SEL_B)), reverse=True)[:40]
+P.table(doc, "Table K1. Top 40 genes by min(stability_GSE2034, stability_METABRIC).",
+        ["gene", "stab GSE2034", "stab METABRIC", "signs agree"],
+        [[g, f"{sa:.3f}", f"{sb:.3f}", "yes" if ag else "NO"] for jm, g, ag, sa, sb in _joint])
+
+P.h1(doc, "Appendix L. Replication pipeline source listings")
+for path in ("src/replication/pull_metabric.py", "src/replication/score_metabric.py",
+             "src/replication/score_scanb.py", "src/replication/twocohort_selection.py"):
+    P.h2(doc, f"L. {path}")
+    for line in open(path):
+        p_ = doc.add_paragraph()
+        r_ = p_.add_run(line.rstrip("\n"))
+        r_.font.name = "Courier New"; r_.font.size = _Pt(8)
+        p_.paragraph_format.space_after = _Pt(0)
 
 P.h1(doc, "Appendix D. Source listings")
 from docx.shared import Pt as _Pt
