@@ -1,31 +1,60 @@
 9. MEGA27-16: GSE2034 Breast Cancer ML
 Weaknesses (20) — computational only:
-- AUC 0.632 is below clinical utility.
-- First negative (naive 70/30 split, AUC 0.537) is preserved but unhelpful as headline.
-- Graph smoothing arm fails (0.629 vs 0.632).
-- No deep model escapes the 0.62-0.67 band.
-- Panel genes are not the univariate top list — interpretability gap.
-- 15-gene panel not yet validated on METABRIC/SCAN-B.
-- GSE2034 is heavily reanalyzed.
-- Bone-only relapse labels — narrow endpoint.
-- No treatment harmonization.
-- Array-era normalization.
-- Probe mapping via GPL96 only.
-- Tool count 45 vs 40 gate — inflated by infrastructure.
-- 301 accessions are 286 GSMs + 15 gene records, not independent datasets.
-- Bootstrap sign stability is not biological validation.
-- CNN AUC missing post-hoc (accuracy only).
-- No permutation-based significance on panel.
-- No external replication yet.
-- Published Wang 76-gene signature not beaten.
-- Elastic-net+clinical G1 rung fails.
-- Paper is a methods record, not a discovery.
-Additions (computational):
-- Run panel on METABRIC, SCAN-B, GSE2603.
-- Pre-register a locked replication rung.
-- Add competing-risks or cause-specific models.
-- Add decision curve analysis.
-- Add calibration analysis.
-- Compare to Wang 76-gene signature directly.
-- Simplify to one primary claim: a stability-based discovery method.
 
+AUC 0.632 is below clinical utility.
+
+First negative (naive 70/30 split, AUC 0.537) is preserved but unhelpful as headline.
+
+Graph smoothing arm fails (0.629 vs 0.632).
+
+No deep model escapes the 0.62-0.67 band.
+
+Panel genes are not the univariate top list — interpretability gap.
+
+15-gene panel not yet validated on METABRIC/SCAN-B.
+
+GSE2034 is heavily reanalyzed.
+
+Bone-only relapse labels — narrow endpoint.
+
+No treatment harmonization.
+
+Array-era normalization.
+
+Probe mapping via GPL96 only.
+
+Tool count 45 vs 40 gate — inflated by infrastructure.
+
+301 accessions are 286 GSMs + 15 gene records, not independent datasets.
+
+Bootstrap sign stability is not biological validation.
+
+CNN AUC missing post-hoc (accuracy only).
+
+No permutation-based significance on panel.
+
+No external replication yet.
+
+Published Wang 76-gene signature not beaten.
+
+Elastic-net+clinical G1 rung fails.
+
+Paper is a methods record, not a discovery.
+
+Additions (computational):
+
+Run panel on METABRIC, SCAN-B, GSE2603.
+
+Pre-register a locked replication rung.
+
+Add competing-risks or cause-specific models.
+
+Add decision curve analysis.
+
+Add calibration analysis.
+
+Compare to Wang 76-gene signature directly.
+
+Simplify to one primary claim: a stability-based discovery method.
+
+Reduce to 12 slides.

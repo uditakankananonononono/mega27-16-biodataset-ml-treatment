@@ -15,3 +15,10 @@
   DROPPED; grow page count with substance instead.
 - Foldback queue: AMENDMENT_QUEUE_R1.md (locked BEFORE execution).
 - STATUS: lane-16 judge gate MET - 1 of 1 provided.
+
+ARCHIVE NOTE (12:14 IST): archive files re-extracted directly from the
+channel record body (phone_messages, wamid...RURGRAA=). Main's attachment
+transcription was verified against the channel body: differences limited to
+bullet formatting, main's [NOTE: superseded] annotations, and the omitted
+"Reduce to 12 slides." line (dropped per the header directive). Substance
+identical. This file now holds the exact channel text.

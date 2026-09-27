@@ -1,21 +1,40 @@
 Cross-Cutting Computational Themes
 Recurring weaknesses:
-- Dataset/tool count inflation (nested records counted as independent).
-- Long papers (47-58 pages) — not ISEF-ready. [NOTE: superseded by header directive]
-- Negative-heavy narratives that obscure positive contributions.
-- Single-seed headline numbers.
-- Ad hoc gates/thresholds rather than theoretically derived.
-- Homology leakage in random-split benchmarks.
-- No leave-family-out CV in most projects.
-- CIs often overlapping — point-estimate wins only.
+
+Dataset/tool count inflation (nested records counted as independent).
+
+Long papers (47-58 pages) — not ISEF-ready.
+
+Negative-heavy narratives that obscure positive contributions.
+
+Single-seed headline numbers.
+
+Ad hoc gates/thresholds rather than theoretically derived.
+
+Homology leakage in random-split benchmarks.
+
+No leave-family-out CV in most projects.
+
+CIs often overlapping — point-estimate wins only.
+
 Universal computational additions:
-- One primary question per paper.
-- One locked primary endpoint.
-- Cluster-level bootstrap CIs everywhere.
-- Leave-family-out CV as the primary protocol.
-- 12-slide storyboard as the ISEF deliverable. [NOTE: superseded by header directive - dropped]
-- One-page summary card.
-- Decision tree for tool use.
-- Pre-registered replication within the paper itself.
-- "What this is NOT" section in every abstract.
-- Reduce tool/dataset counting to study-level units.
+
+One primary question per paper.
+
+One locked primary endpoint.
+
+Cluster-level bootstrap CIs everywhere.
+
+Leave-family-out CV as the primary protocol.
+
+12-slide storyboard as the ISEF deliverable.
+
+One-page summary card.
+
+Decision tree for tool use.
+
+Pre-registered replication within the paper itself.
+
+"What this is NOT" section in every abstract.
+
+Reduce tool/dataset counting to study-level units.
