@@ -1,0 +1,104 @@
+{
+ "cohort": "SCAN-B GSE96058 (GEO public, pulled 2026-09-27; RNA-seq, both platforms)",
+ "endpoint": "OS (overall survival event) - DECLARED OS-endpoint arm; GEO annotation carries no relapse field (prereg section 2 fallback)",
+ "n_samples": 3409,
+ "n_events": 353,
+ "genes_used": 15,
+ "auc": 0.5075289589605921,
+ "boot_lo_one_sided_95": 0.4790065356391322,
+ "sign_concordance": "6/15",
+ "per_gene": [
+  {
+   "gene": "EEF2KMT",
+   "discovery_sign": -1,
+   "scanb_corr": -0.009530362674078923,
+   "concordant": true
+  },
+  {
+   "gene": "WFDC1",
+   "discovery_sign": 1,
+   "scanb_corr": 0.021043824856092325,
+   "concordant": true
+  },
+  {
+   "gene": "PSMB1",
+   "discovery_sign": -1,
+   "scanb_corr": 0.08350976186973409,
+   "concordant": false
+  },
+  {
+   "gene": "CALML3",
+   "discovery_sign": -1,
+   "scanb_corr": -0.10122459337551856,
+   "concordant": true
+  },
+  {
+   "gene": "NPPC",
+   "discovery_sign": -1,
+   "scanb_corr": -0.0186661149904349,
+   "concordant": true
+  },
+  {
+   "gene": "PASK",
+   "discovery_sign": 1,
+   "scanb_corr": -0.0330714336872833,
+   "concordant": false
+  },
+  {
+   "gene": "GLTSCR1",
+   "discovery_sign": 1,
+   "scanb_corr": -0.020966405041646798,
+   "concordant": false
+  },
+  {
+   "gene": "BLZF1",
+   "discovery_sign": 1,
+   "scanb_corr": -0.022224282158450393,
+   "concordant": false
+  },
+  {
+   "gene": "CMC4",
+   "discovery_sign": -1,
+   "scanb_corr": 0.017795750393856648,
+   "concordant": false
+  },
+  {
+   "gene": "COX11",
+   "discovery_sign": 1,
+   "scanb_corr": -0.01165335658686327,
+   "concordant": false
+  },
+  {
+   "gene": "CDH13",
+   "discovery_sign": 1,
+   "scanb_corr": 0.016169583339058085,
+   "concordant": true
+  },
+  {
+   "gene": "FUT9",
+   "discovery_sign": -1,
+   "scanb_corr": 0.02403575814893538,
+   "concordant": false
+  },
+  {
+   "gene": "ALDH3A2",
+   "discovery_sign": -1,
+   "scanb_corr": -0.06830168203291197,
+   "concordant": true
+  },
+  {
+   "gene": "CWF19L1",
+   "discovery_sign": -1,
+   "scanb_corr": 0.005771027046388904,
+   "concordant": false
+  },
+  {
+   "gene": "POF1B",
+   "discovery_sign": 1,
+   "scanb_corr": -0.012423088757757661,
+   "concordant": false
+  }
+ ],
+ "secondary_test_pass": false,
+ "gate": "PREREG_REPLICATION.md section 3 (SECONDARY 1)"
+}
