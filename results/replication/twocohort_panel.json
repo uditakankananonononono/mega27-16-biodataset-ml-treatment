@@ -1,0 +1,5 @@
+{
+ "rule": "stability>=0.975 both cohorts + sign agreement (PREREG_TWOCOHORT.md)",
+ "n_panel": 0,
+ "panel": []
+}
