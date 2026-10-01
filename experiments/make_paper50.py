@@ -48,7 +48,7 @@ P.para(doc,
  "GSE2034 + METABRIC, test cohorts not used for this selection, with prior scoring disclosed) yields ZERO panel genes - "
  "268 genes are stable in GSE2034 and 147 in METABRIC, but exactly one "
  "gene (CACNB3) clears the bar in both, with OPPOSITE signs; the design "
- "is declared implemented L2 result with an L1 protocol deviation, with no threshold loosening. The "
+ "is recorded only as the implemented L2 outcome, with the intended L1 arm unverified, with no threshold loosening. The "
  "contribution is the method and its boundary: bootstrap sign-stability "
  "inside one cohort is not a generalization certificate, and at the "
  "locked bar cross-cohort stability does not manufacture one either. "
@@ -257,8 +257,13 @@ P.para(doc,
  "the observed symbol-level selection recipe. That number is preserved as "
  "an implementation output, not certified as an identical-pipeline "
  "significance test. No threshold was changed and no completed fit was "
- "rerun. A new matched positive/null-control design requires its own "
- "preregistration; it has not begun.")
+ "rerun. A separate synthetic-control protocol was locked before outcomes on October 1. "
+ "Its unchanged 0.975 stability gate detected all five planted positives (p=0.025 each), "
+ "and no independent-label null among five controls (p=0.225, 1, 0.475, 0.725, 0.425). "
+ "Seven deliberate manifest mismatches were rejected. This easy, small synthetic study "
+ "is not type-I error calibration, clinical validation or benchmark superiority. Equal "
+ "declared manifests do not prove implementation equivalence. The old unmatched "
+ "clinical permutation result remains uncertified; no real-cohort fit was repeated.")
 P.para(doc,
  "The implemented results support a narrower descriptive claim, with the L1 protocol deviation explicit: "
  "(i) within-cohort bootstrap sign-stability is a REAL, reproducible "
