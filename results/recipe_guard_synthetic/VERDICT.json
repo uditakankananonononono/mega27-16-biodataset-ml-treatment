@@ -1,0 +1,18 @@
+{
+  "protocol_sha256": "48b0e87a69a7c294c6297d70f7a63f5a011d9c64372b6c7b875827f57c1ecb44",
+  "recipe_sha256": "6dba930b66e76b1db6d0c4f79d90e087842aae7e447e1b693f98a0d74ef58b79",
+  "rejected_mismatch_fields": [
+    "feature_space",
+    "collapse",
+    "filter",
+    "penalty",
+    "scaling",
+    "fold_policy",
+    "rng_policy"
+  ],
+  "identical_contract_accepted": true,
+  "positive_detections": 5,
+  "null_detections": 0,
+  "gate": true,
+  "caveat": "Synthetic independent features only; not type-I calibration, real-cohort validation, clinical novelty or benchmark superiority"
+}

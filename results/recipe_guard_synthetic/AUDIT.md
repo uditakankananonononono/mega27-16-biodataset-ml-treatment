@@ -1,0 +1,4 @@
+# Synthetic result audit
+Locked novelty audited6b71b; protocol and implementation commitdc4632b preceded all outcomes. 10 cases completed once with fixed0.975. Positive stable counts8,8,10,10,12: all p0.025. Null counts3,0,2,1,2: p0.225,1,0.475,0.725,0.425. Gate5 positive detections/0 null detections/7 mismatches rejected passes only the bounded synthetic preregistration.
+Second-pass independent recomputation checked all10 p-values from recorded39 null counts, protocol hashes and count ranges; additional7 missing-field refusals passed. No fits rerun.
+Limits: only5 easy positives/5 independent nulls; not calibration, clinical transfer or superiority. Equal declared manifests do not prove numerical equivalence or protect against falsely declared implementation. Old observed/null gene-selection mismatch has NOT been repaired or re-evaluated. No real-data comparison or publishable novelty established.

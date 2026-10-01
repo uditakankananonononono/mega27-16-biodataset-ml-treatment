@@ -1,0 +1,6 @@
+# Matched-control tool novelty audit, October 1, 2026
+Verified prior art: Venet et al., random signature/proliferation confounding (2011), https://pmc.ncbi.nlm.nih.gov/articles/PMC3197658/; Significance Analysis of Prognostic Signatures, https://journals.plos.org/ploscompbiol/article?id=10.1371%2Fjournal.pcbi.1002875. Full pages read. SAPS already compares random gene sets and uses permutation testing; neither null calibration, random signatures nor subtype-aware interpretation is a new method here.
+
+Narrow implementation target: an executable recipe-contract guard binding feature space, probe-collapse, filter, regularizer, preprocessing, fold construction and RNG policy, which refuses unmatched observed/null recipes before issuing a p-value. Static source audit already found real mismatches. The synthetic validation below tests correctness/sensitivity of this engineering guard and its matched-pipeline count statistic. It is NOT a claim of first-of-kind algorithm, a clinical biomarker, a world-benchmark beat or validation on external real cohorts. Broad prior-art completeness remains open; no novelty claim based on this limited audit.
+
+Old METABRIC/SCAN-B results stay frozen. Existing unmatched permutation p remains implementation output only. L1-preregistered/L2-executed deviation stays explicit. No old protocol amended.
