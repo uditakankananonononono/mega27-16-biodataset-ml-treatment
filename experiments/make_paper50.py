@@ -23,15 +23,16 @@ P.title_block(doc,
     "Bootstrap-Stability Panel Discovery",
     "MEGA-PROGRAM-27, Item 16 - computational biology research lane")
 
+P.para(doc, "Udita Phookan")
 P.h1(doc, "Abstract")
 P.para(doc,
  "GSE2034 (286 lymph-node-negative breast cancer patients, 22,283 "
  "Affymetrix probes, bone-relapse labels, 24.1% prevalence) is a classic "
  "small-n large-p cohort. This paper documents a complete, locked-gate "
  "methods arc, with every negative preserved. First negative: a naive "
- "70/30 split logistic model scores AUC 0.537 - split luck, kept in the "
+ "70/30 split logistic model scores AUC 0.537 - an observed weak result, kept in the "
  "record. Pivot: 5-fold cross-validation with per-fold feature selection "
- "yields logistic AUC 0.632 +/- 0.055 - real but modest signal. Second "
+ "yields logistic AUC 0.632 +/- 0.055 - a modest within-cohort association. Second "
  "negative: a co-expression-graph smoothing arm scores 0.629 versus "
  "0.632 plain - no help, reported not buried. Discovery arm: 40 "
  "bootstrap-CV refits yield a 15-gene sign-stable candidate panel. "
@@ -44,14 +45,14 @@ P.para(doc,
  "OS-endpoint arm; AUC 0.5075, lower bound 0.4790, concordance 6/15). "
  "The panel is declared NOT externally validated. FIFTH result: the "
  "pre-registered two-cohort pivot (cross-cohort stability selection on "
- "GSE2034 + METABRIC, test cohorts untouched) yields ZERO panel genes - "
+ "GSE2034 + METABRIC, test cohorts not used for this selection, with prior scoring disclosed) yields ZERO panel genes - "
  "268 genes are stable in GSE2034 and 147 in METABRIC, but exactly one "
  "gene (CACNB3) clears the bar in both, with OPPOSITE signs; the design "
  "is declared failed as designed, with no threshold loosening. The "
  "contribution is the method and its boundary: bootstrap sign-stability "
  "inside one cohort is not a generalization certificate, and at the "
  "locked bar cross-cohort stability does not manufacture one either. "
- "Everything ships with a hermetic test suite and the locked "
+ "Everything ships with source code, recorded tests and the locked "
  "pre-registrations.")
 
 P.h1(doc, "Lay summary")
@@ -213,7 +214,7 @@ P.para(doc,
 P.page_break(doc)
 P.h1(doc, "6. The two-cohort pivot: cross-cohort stability, failed as designed")
 P.para(doc,
- "The owner's standing rule is that a negative triggers a pivot, not an "
+ "A negative motivates a different question, not an "
  "end. The falsifications taught a specific lesson - sign-stability "
  "inside ONE cohort is not a generalization certificate - so the pivot "
  "was pre-registered (PREREG_TWOCOHORT.md, dated commit b476288) BEFORE "
@@ -221,10 +222,10 @@ P.para(doc,
  "(GSE2034 + METABRIC) with the identical bootstrap recipe per cohort, "
  "and admit a gene to the panel only if it is sign-stable at >= 0.975 "
  "in BOTH cohorts with AGREEING signs; SCAN-B and GSE2603 were reserved "
- "as untouched test arms; a zero-gene outcome is declared a design "
+ "as test arms with prior scoring disclosed; a zero-gene outcome is declared a design "
  "failure, with threshold loosening explicitly requiring a NEW "
  "pre-registration.")
-P.table(doc, "Table 4. Two-cohort cross-stability selection (locked recipe, 40 bootstrap L1 refits per cohort).",
+P.table(doc, "Table 4. Two-cohort cross-stability selection (locked recipe, 40 bootstrap logistic refits per cohort (effective L2 default)).",
         ["arm", "genes scored", "stable >= 0.975", "notes"],
         [["GSE2034 (symbol-level rerun)", "2,000", "268", "top-|t| prefilter, seed 0"],
          ["METABRIC (RFS)", "2,000", "147", "identical recipe"],
@@ -245,6 +246,18 @@ P.para(doc,
 
 P.page_break(doc)
 P.h1(doc, "7. What the arc establishes (the contribution)")
+P.para(doc,
+ "Implementation audit, October 1, 2026: the two-cohort selector's docstring "
+ "describes L1 fits, but its LogisticRegression call omits penalty and the "
+ "installed default is L2. The completed results describe that effective "
+ "implementation, not an L1 experiment. The completed 100-permutation arm "
+ "records 268 observed stable genes versus a null median of 426, p=0.980198. "
+ "However, its probe-level filtering and original-label folds do not match "
+ "the observed symbol-level selection recipe. That number is preserved as "
+ "an implementation output, not certified as an identical-pipeline "
+ "significance test. No threshold was changed and no completed fit was "
+ "rerun. A new matched positive/null-control design requires its own "
+ "preregistration; it has not begun.")
 P.para(doc,
  "The methodological claim is now bounded on all sides by locked gates: "
  "(i) within-cohort bootstrap sign-stability is a REAL, reproducible "
@@ -271,8 +284,8 @@ P.para(doc,
  "rungs, a leakage-free protocol, and a boundary result for "
  "stability-based panel discovery. The graph arm's failure is "
  "instructive: at n = 286, estimated co-expression graphs are "
- "themselves noisy, and smoothing with a noisy graph can only inject "
- "variance. The external failures are more instructive still: platform "
+ "potentially noisy; added variance is a hypothesis, not an established cause of the "
+ "failure. The external failures are more instructive still: platform "
  "shift (Affymetrix U133A vs Illumina HT-12 vs RNA-seq), endpoint "
  "shift (bone relapse vs any relapse vs overall survival), and cohort "
  "composition each plausibly contribute, and the data at hand cannot "
@@ -281,8 +294,7 @@ P.para(doc,
  "discovery-cohort labels was considered and waived by the owner "
  "(documented in the amendment queue); residual label-noise risk is "
  "acknowledged here and bounds every within-cohort estimate. Expert "
- "adjudication of labels was considered and waived by the owner; "
- "residual label noise risk remains.")
+ "adjudication remains outside this computational validation; residual label-noise risk remains.")
 
 
 P.h1(doc, "Formal derivations")
