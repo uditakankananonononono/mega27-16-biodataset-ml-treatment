@@ -43,12 +43,12 @@ P.para(doc,
  "concordance 9/15 - gate requires both arms, primary test fails) and "
  "FAILS on SCAN-B GSE96058 (3,409 patients, 353 OS events, declared "
  "OS-endpoint arm; AUC 0.5075, lower bound 0.4790, concordance 6/15). "
- "The panel is declared NOT externally validated. FIFTH result: the "
- "pre-registered two-cohort pivot (cross-cohort stability selection on "
+ "The panel is declared NOT externally validated. FIFTH implemented result: the "
+ "two-cohort pivot (L2 execution deviates from preregistered L1) (cross-cohort stability selection on "
  "GSE2034 + METABRIC, test cohorts not used for this selection, with prior scoring disclosed) yields ZERO panel genes - "
  "268 genes are stable in GSE2034 and 147 in METABRIC, but exactly one "
  "gene (CACNB3) clears the bar in both, with OPPOSITE signs; the design "
- "is declared failed as designed, with no threshold loosening. The "
+ "is declared implemented L2 result with an L1 protocol deviation, with no threshold loosening. The "
  "contribution is the method and its boundary: bootstrap sign-stability "
  "inside one cohort is not a generalization certificate, and at the "
  "locked bar cross-cohort stability does not manufacture one either. "
@@ -212,7 +212,7 @@ P.para(doc,
  "mismapped probe.")
 
 P.page_break(doc)
-P.h1(doc, "6. The two-cohort pivot: cross-cohort stability, failed as designed")
+P.h1(doc, "6. The two-cohort pivot: cross-cohort stability, implemented L2 result with an L1 protocol deviation")
 P.para(doc,
  "A negative motivates a different question, not an "
  "end. The falsifications taught a specific lesson - sign-stability "
@@ -238,7 +238,7 @@ P.para(doc,
  "stability filters actually selects. Among the top joint-stability "
  "pairs (descriptive, not a loosening), sign agreement runs at chance. "
  "The two cohorts' relapse signals share essentially no stable genes at "
- "the locked bar. The design is declared FAILED AS DESIGNED. Recorded "
+ "the locked bar. The design is declared IMPLEMENTED L2 RESULT; PREREGISTERED L1 UNVERIFIED. Recorded "
  "future arms, not executed: subtype-conditioned selection (PAM50 calls "
  "exist in both test cohorts), and a permutation-informed threshold - "
  "either one requires its own pre-registration and the owner's explicit "
@@ -250,7 +250,8 @@ P.para(doc,
  "Implementation audit, October 1, 2026: the two-cohort selector's docstring "
  "describes L1 fits, but its LogisticRegression call omits penalty and the "
  "installed default is L2. The completed results describe that effective "
- "implementation, not an L1 experiment. The completed 100-permutation arm "
+ "implementation, not an L1 experiment. PREREG_TWOCOHORT explicitly required L1, "
+ "so this is a protocol deviation and the intended L1 arm remains unverified. The completed 100-permutation arm "
  "records 268 observed stable genes versus a null median of 426, p=0.980198. "
  "However, its probe-level filtering and original-label folds do not match "
  "the observed symbol-level selection recipe. That number is preserved as "
@@ -259,7 +260,7 @@ P.para(doc,
  "rerun. A new matched positive/null-control design requires its own "
  "preregistration; it has not begun.")
 P.para(doc,
- "The methodological claim is now bounded on all sides by locked gates: "
+ "The implemented results support a narrower descriptive claim, with the L1 protocol deviation explicit: "
  "(i) within-cohort bootstrap sign-stability is a REAL, reproducible "
  "property - 268 and 147 genes clear 0.975 in two independent cohorts "
  "respectively; (ii) it is NOT sufficient for external validity - the "
