@@ -366,18 +366,7 @@ P.table(doc, "Table. Verified external libraries (" + str(len(_libs)) + ").",
 P.table(doc, "Table. Verified external databases and APIs (" + str(len(_apis)) + ").",
         ["external databases / APIs (genuinely queried)"], [[", ".join(_apis)]])
 P.para(doc, "The inventory below is the complementary set of 40 in-repo implementations.")
-P.para(doc,
- "Complementing the external inventory, the lane implements 40 named in-repo tools (src/biomedml/tools40.py, "
- "executed by experiments/tool_inventory.py, results/tool_run.json) over "
- "301 accession-level dataset records: the 286 GSM sample accessions of "
- "GSE2034 (data/sample_manifest.json, extracted from the series matrix) "
- "plus the 15 RefSeq-mapped panel-gene records of the stability panel. "
- "Every classifier in the inventory is evaluated under the lane's honest "
- "protocol - Welch-t selection and normalization INSIDE each CV fold - "
- "because the inventory's first draft reproduced the classic leakage "
- "inflation (phantom 0.73-0.76 AUCs) before the protocol was enforced; "
- "that failure is preserved in the git history as a live demonstration "
- "of the paper's central methodological claim.")
+P.para(doc, "Census audit, October 1: 286 GSM samples from one GSE2034 cohort and 15 gene accessions are records, not 301 independent datasets. They do not certify the 120-dataset gate. The 40 named in-repo functions are not 40 external tools. Source inspection of tool_inventory.py found that quantile_norm is marked done without a call, global variance filtering and global z-score precede CV, and fold_dispersion receives a one-element mean list. Classifier figures below are preserved implementation outputs, not certified fully fold-internal estimates. No outcomes were rerun or silently replaced. External inventory counts remain to be independently audited.")
 groups = [("Statistics / preprocessing (10)", "welch_t, mannwhitney, bh_fdr, ks_test, zscore, quantile_norm, log2, mad_filter, variance_filter, cohens_d"),
           ("Classifiers (10)", "logistic, svm_linear, random_forest, gradboost, knn, naive_bayes, mlp, deep_2layer, nearest_centroid, majority"),
           ("Evaluation (10)", "roc_auc, pr_auc, brier, confusion, calibration, fold_dispersion, permutation, bootstrap_stability, decision_curve, stratified_split"),
@@ -389,16 +378,16 @@ P.h2(doc, "Inventory findings")
 rows = [[k, str(f[k].get("cv_auc_mean", f[k].get("majority_accuracy")))] for k in
         ("logistic", "svm_linear", "random_forest", "gradboost", "knn",
          "naive_bayes", "mlp", "deep_2layer", "nearest_centroid", "majority")]
-P.table(doc, "Table. Honest-protocol 5-fold CV AUC, 9 classifiers (fold-internal selection).",
+P.table(doc, "Table. Recorded classifier outputs; global-preprocessing caveat applies.",
         ["classifier", "CV AUC (or majority acc)"], rows)
 P.para(doc,
- f"Under the honest protocol the classifier band is 0.62-0.67: random "
+ f"For this implementation the classifier band is 0.62-0.67: random "
  f"forest {f['random_forest']['cv_auc_mean']}, nearest centroid "
  f"{f['nearest_centroid']['cv_auc_mean']}, MLP {f['mlp']['cv_auc_mean']}, "
  f"logistic {f['logistic']['cv_auc_mean']} (canonical lane result 0.632 "
  "within dispersion), majority accuracy "
  f"{f['majority']['majority_accuracy']}. No deep model escapes the band - "
- "the cohort size, not the model class, is the binding constraint. "
+ "cohort size as a causal bottleneck is untested. "
  f"BH-FDR rejects {f['bh_fdr']['n_reject_q05']} of the top-2000 probes at "
  "q=0.05; bootstrap sign-stability is 100% on the panel; the "
  "co-expression graph at |r|>0.3 has "
@@ -500,7 +489,7 @@ P.h1(doc, "Appendix I. The modeling feature pool: top 1,000 probes by |t|")
 P.para(doc,
  "The complete univariate ranking from which every per-fold selection "
  "draws (this table is computed on the full cohort for documentation; "
- "modeling selections were always fold-internal).")
+ "some modeling selections were fold-internal; global inventory preprocessing remains a caveat).")
 T2 = json.load(open("results/top2000_de.json"))
 P.table(doc, "Table I1. Top 1,000 probes by |Welch t| with group means.",
         ["probe", "t", "mean (relapse)", "mean (control)"], T2[:1000])
