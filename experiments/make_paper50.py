@@ -19,7 +19,7 @@ doc = P.new_doc()
 P.title_block(doc,
     "Honest Machine Learning on a Small Clinical Microarray Cohort: "
     "Cross-Validated Signal in GSE2034, a 15-Gene Stability Panel "
-    "Falsified on Two Independent Cohorts, and the Limits of "
+    "Not Replicated in Two External Cohorts, and the Limits of "
     "Bootstrap-Stability Panel Discovery",
     "MEGA-PROGRAM-27, Item 16 - computational biology research lane")
 
@@ -135,7 +135,7 @@ P.figure(doc, "results/figures/gse2034.png",
 P.para(doc,
  "The arc is the finding for the methods literature: on 286 samples "
  "and 22k features, single-split estimates are noise (0.537), "
- "cross-validated estimates are modest but real (0.632 +/- 0.055), and "
+ "cross-validated estimates are modest within the cohort (0.632 +/- 0.055; not replicated externally), and "
  "a plausible graph prior adds nothing (0.629). Any treatment-response "
  "claim on this cohort must clear the cross-validation bar, and most "
  "simple pipelines will not clear 0.65.")
@@ -167,7 +167,7 @@ P.para(doc,
  "with its evidence, is exactly what other researchers need.")
 
 P.page_break(doc)
-P.h1(doc, "5. External replication: two pre-registered falsifications")
+P.h1(doc, "5. External replication: two pre-registered external non-replications")
 P.para(doc,
  "The replication rung was locked in writing (PREREG_REPLICATION.md, "
  "dated commit e54d8bc) BEFORE any replication analysis: the frozen "
@@ -216,7 +216,7 @@ P.page_break(doc)
 P.h1(doc, "6. The two-cohort pivot: cross-cohort stability, implemented L2 result with an L1 protocol deviation")
 P.para(doc,
  "A negative motivates a different question, not an "
- "end. The falsifications taught a specific lesson - sign-stability "
+ "end. The non-replications taught a specific lesson - sign-stability "
  "inside ONE cohort is not a generalization certificate - so the pivot "
  "was pre-registered (PREREG_TWOCOHORT.md, dated commit b476288) BEFORE "
  "any cross-cohort analysis: select on TWO discovery cohorts "
