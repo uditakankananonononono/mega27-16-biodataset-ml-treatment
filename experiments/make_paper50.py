@@ -351,22 +351,13 @@ _EXT = _json_ext.load(open("results/external_tool_run.json"))
 _ext_ok = [t for t in _EXT["tools"] if t["status"] == "ok"]
 _libs = sorted(t["tool"] for t in _ext_ok if "library" in t["kind"])
 _apis = sorted(t["tool"] for t in _ext_ok if "library" not in t["kind"])
-P.h1(doc, "Tool and dataset build-out: " + str(len(_ext_ok)) + " external tools, 40 in-repo implementations, 301 accessions")
-P.para(doc,
- "Under the strict program standard - external research/data tools only; "
- "self-written implementations do not count - this repo runs " + str(len(_ext_ok)) +
- " verified external tools: installed science libraries plus live databases "
- "and APIs, each executed against this repo's real data. Every run records "
- "its analysis and key numbers in results/external_tool_run.json (" +
- str(_EXT["n_tools_ok"]) + " of " + str(_EXT["n_tools_attempted"]) +
- " attempted tools succeeded; failures are recorded in the same file and "
- "never counted).")
-P.table(doc, "Table. Verified external libraries (" + str(len(_libs)) + ").",
-        ["external libraries (genuinely used)"], [[", ".join(_libs)]])
-P.table(doc, "Table. Verified external databases and APIs (" + str(len(_apis)) + ").",
-        ["external databases / APIs (genuinely queried)"], [[", ".join(_apis)]])
-P.para(doc, "The inventory below is the complementary set of 40 in-repo implementations.")
-P.para(doc, "Census audit, October 1: 286 GSM samples from one GSE2034 cohort and 15 gene accessions are records, not 301 independent datasets. They do not certify the 120-dataset gate. The 40 named in-repo functions are not 40 external tools. Source inspection of tool_inventory.py found that quantile_norm is marked done without a call, global variance filtering and global z-score precede CV, and fold_dispersion receives a one-element mean list. Classifier figures below are preserved implementation outputs, not certified fully fold-internal estimates. No outcomes were rerun or silently replaced. External inventory counts remain to be independently audited.")
+P.h1(doc, "Tool and dataset inventory: recorded execution, not certified breadth")
+P.para(doc, "The historical external inventory reports 45 ok statuses from 48 attempts. Status ok means that the function returned without an exception, not that its result is finite, its API response identifies the intended source, or its scientific use passes the program gate. The October 7 provenance audit found a non-finite bctpy output, an incorrect CrossRef primary-study match, upstream feature-selection leakage in scikit-optimize, exploratory same-cohort inference, missing raw API responses, and possible annotation fallback. See results/EXTERNAL_TOOL_PROVENANCE_AUDIT.md. The 40-tool scientific-use gate is not certified. Historical outputs remain unchanged.")
+P.table(doc, "Table. Libraries with historical ok statuses, not individually certified results.",
+        ["recorded external libraries"], [[", ".join(_libs)]])
+P.table(doc, "Table. Database and API entries with historical ok statuses, not certified scientific uses.",
+        ["recorded database / API entries"], [[", ".join(_apis)]])
+P.para(doc, "The inventory below lists 40 named in-repo functions, not 40 external tools. Census audit, October 1: 286 GSM samples from one GSE2034 cohort and 15 gene accessions are records, not 301 independent datasets. They do not certify the 120-dataset gate. Source inspection found quantile_norm marked done without a call, global variance filtering and global z-score preceding CV, and fold_dispersion receiving a one-element mean list. Classifier figures below are preserved implementation outputs, not certified fully fold-internal estimates. No outcomes were rerun or silently replaced.")
 groups = [("Statistics / preprocessing (10)", "welch_t, mannwhitney, bh_fdr, ks_test, zscore, quantile_norm, log2, mad_filter, variance_filter, cohens_d"),
           ("Classifiers (10)", "logistic, svm_linear, random_forest, gradboost, knn, naive_bayes, mlp, deep_2layer, nearest_centroid, majority"),
           ("Evaluation (10)", "roc_auc, pr_auc, brier, confusion, calibration, fold_dispersion, permutation, bootstrap_stability, decision_curve, stratified_split"),
