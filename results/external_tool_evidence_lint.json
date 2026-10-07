@@ -1,0 +1,13 @@
+{
+  "certified": false,
+  "recorded_entries": 48,
+  "recorded_ok": 45,
+  "issues": [
+    "bctpy: non-finite value at $.result.mean_clustering",
+    "missing execution provenance: code_revision",
+    "missing execution provenance: data_sha256",
+    "missing execution provenance: package_versions",
+    "missing execution provenance: executed_at"
+  ],
+  "boundary": "Passing structural checks cannot certify source identity, valid analysis, distinct tools, novelty or execution."
+}
