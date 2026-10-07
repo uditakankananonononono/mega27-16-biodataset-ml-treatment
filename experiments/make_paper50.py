@@ -70,7 +70,7 @@ P.para(doc,
  "passes in both, and it points in opposite directions in the two "
  "datasets. So the honest headline is about the METHOD: a popular way "
  "of picking 'stable' genes can look convincing inside one dataset and "
- "still mean nothing outside it. We prove that with pre-registered "
+ "still mean nothing outside it. We test that with pre-registered "
  "tests locked before the answers were computed, and we keep every "
  "failure in the record, because that is what makes the boundary "
  "trustworthy.")
