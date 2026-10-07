@@ -24,11 +24,12 @@ P.title_block(doc,
     "MEGA-PROGRAM-27, Item 16 - computational biology research lane")
 
 P.para(doc, "Udita Phookan")
+P.para(doc, "Working revision, October 7, 2026. Scientific gates remain open. The current PDF uses Liberation Serif because Times New Roman is unavailable; this is not a Times New Roman format pass. The 57-page count includes data and source appendices, not 57 pages of new research.")
 P.h1(doc, "Abstract")
 P.para(doc,
  "GSE2034 (286 lymph-node-negative breast cancer patients, 22,283 "
  "Affymetrix probes, bone-relapse labels, 24.1% prevalence) is a classic "
- "small-n large-p cohort. This paper documents a complete, locked-gate "
+ "small-n large-p cohort. This paper documents a recorded, partly locked "
  "methods arc, with every negative preserved. First negative: a naive "
  "70/30 split logistic model scores AUC 0.537 - an observed weak result, kept in the "
  "record. Pivot: 5-fold cross-validation with per-fold feature selection "
@@ -307,7 +308,7 @@ P.h1(doc, "Formal derivations")
 P.h2(doc, "Feature selection: the Welch statistic")
 P.para(doc, "Per-probe selection inside each training fold uses the unequal-variance t statistic:")
 P.eq(doc, "3", "t_g = (mu_R - mu_N) / sqrt( s_R^2 / n_R + s_N^2 / n_N )")
-P.para(doc, "with Welch-Satterthwaite degrees of freedom; selecting outside the folds would leak test-set label information into feature choice - the first arm's 0.537 negative is what a single 70/30 split does to this estimate, and the CV pivot is the correction.")
+P.para(doc, "with Welch-Satterthwaite degrees of freedom; selecting outside the folds would leak test-set label information into feature choice - the recorded 0.537 single-split estimate and later CV estimate describe different analyses. Their difference alone does not identify the cause or establish that CV repairs every source of bias.")
 P.h2(doc, "The classifier")
 P.para(doc, "Logistic regression on the selected panel estimates the relapse log-odds linearly:")
 P.eq(doc, "4", "logit P(R | x) = b0 + sum_k w_k x_k;   w by L2-penalized likelihood")
@@ -333,14 +334,14 @@ P.para(doc, "Empirically |panel| = 0 (the sole double-stable gene, CACNB3, flips
 P.h2(doc, "Bootstrap sign stability")
 P.para(doc, "The 15-gene panel is defined by coefficient-sign consistency over 40 bootstrap-CV refits:")
 P.eq(doc, "7", "stab(g) = (1/40) sum_b 1[ sign(w_g^(b)) = sign(w_g^(med)) ] = 1.00 for panel genes")
-P.para(doc, "Sign stability, not magnitude, is the criterion because probe intensities are not comparable across genes; a gene whose direction of association never flips under resampling is the strongest claim this cohort size supports.")
+P.para(doc, "Sign stability, not magnitude, is the criterion because probe intensities are not comparable across genes; a direction that persists across these dependent refits is a descriptive result, not a significance certificate or evidence of transport to another cohort.")
 P.h2(doc, "The graph arm's smoothing operator")
 P.para(doc, "The negative graph arm diffuses features over the co-expression graph with normalized Laplacian smoothing:")
 P.eq(doc, "8", "x' = (1 - a) x + a D^-1/2 W D^-1/2 x,   W_ij = max(0, corr(i, j))^8")
-P.para(doc, "The hypothesis was that co-expression neighbors denoise single probes; the result (0.629 vs 0.632) falsifies it at this cohort size - smoothing averages away exactly the gene-specific signal the panel relies on. The negative is preserved with its operator, not just its score.")
+P.para(doc, "The hypothesis was that co-expression neighbors denoise single probes; the recorded result (0.629 vs 0.632) shows no observed improvement in this arm. Without a paired uncertainty estimate it does not establish equivalence, a general falsification, or the mechanism causing the difference. The negative is preserved with its operator, not just its score.")
 P.h2(doc, "Multiplicity")
-P.para(doc, "Selecting 100 probes from 22,283 at nominal alpha = 0.05 expects ~1,114 false positives; the protocol's defense is not a corrected p-value but the stability analysis of equation (7):")
-P.eq(doc, "9", "E[false] = m alpha = 22283 x 0.05 = 1114  =>  p-values uninterpretable; stability is the filter")
+P.para(doc, "Under a complete null with valid marginal tests, testing all 22,283 probes at nominal alpha = 0.05 gives an expected 1,114.15 rejections. This is not the expected false count in a selected top-100 list. Bootstrap sign stability does not replace multiplicity control:")
+P.eq(doc, "9", "E[V] = m alpha = 22283 x 0.05 = 1114.15 (complete null, valid marginal tests)")
 P.eq(doc, "10", "BH: reject g iff p_(g) <= (rank(g) / m) q,  q = 0.05  (reported for reference in top1000 table)")
 
 
@@ -432,7 +433,7 @@ P.para(doc,
  "Multivariate sign stability across refits and univariate significance "
  "are different axes of evidence; the panel complements rather than "
  "duplicates the DE ranking (Appendix F), and a candidate list drawn "
- "from both axes is stronger than either alone.")
+ "from both axes is still exploratory until tested independently.")
 
 P.h1(doc, "Appendix F. Top 100 differential probes")
 rows = [[p["probe"], p["t"], p["mean_relapse"], p["mean_control"]] for p in T100]
@@ -442,10 +443,10 @@ P.table(doc, "Table F1. Top 100 probes by |Welch t| (relapse vs control means)."
 P.h1(doc, "Appendix G. Protocol decision log")
 for d in [
  "D1. Labels parsed from the series-matrix characteristic 'bone relapses (1=yes, 0=no)'; ambiguous rows would have been dropped (none were).",
- "D2. Feature selection moved INSIDE each CV fold after the first negative result showed split sensitivity; full-dataset selection is leakage and was not used anywhere downstream.",
+ "D2. Feature selection moved INSIDE each CV fold after the first negative result showed split sensitivity; full-dataset selection is leakage; it nevertheless appears in the auxiliary inventories audited on October 1 and 7. Those inventory outputs are not fully fold-internal estimates.",
  "D3. AUC chosen over accuracy after noting 75.9% majority accuracy; accuracy reported only alongside AUC.",
  "D4. Graph arm built on train folds only, because a full-data co-expression graph leaks test correlations into features.",
- "D5. Bootstrap refits (40) chosen so that a 100%-stable gene has a binomial 95% lower confidence bound of 91% sign consistency.",
+ "D5. Forty bootstrap refits report empirical sign frequency. Dependence among refits of the same patients prevents interpreting a simple binomial confidence bound as a validated population sign-consistency interval.",
  "D6. The CNN arm's missing AUC is reported as such rather than estimated post-hoc; accuracy alone is kept with the majority baseline adjacent.",
  "D7. Probe mapping uses the official GPL96 annotation (August 2016), not memory; any probe absent from it is reported unmapped.",
 ]:
@@ -458,7 +459,7 @@ for g_, n_ in [
  ("PASK", "PAS-domain serine/threonine kinase; metabolic sensor linking glucose to translation"),
  ("WFDC1", "WAP four-disulfide core domain 1; secreted protease-inhibitor family, stromal signaling"),
  ("GLTSCR1", "glioma tumor suppressor candidate region gene 1; chromatin-associated (GBAF complex)"),
- ("POF1B", "premature ovarian failure 1B; actin-binding, little cancer literature - a genuinely novel direction"),
+ ("POF1B", "premature ovarian failure 1B; actin-binding, candidate biological lead only; novelty has not been independently established"),
  ("CWF19L1", "cell-cycle control protein homolog; RNA-processing association"),
  ("EEF2KMT", "eEF2 lysine methyltransferase; translational control"),
  ("COX11", "cytochrome c oxidase copper chaperone; mitochondrial respiration"),
